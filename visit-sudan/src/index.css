@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- root ---------- */
+:root {
+  color-scheme: dark;
+  --void: #08070a;
+  --ink: #0f0d10;
+  --bone: #ede6d8;
+  --gold: #d9a441;
+  --gold-soft: #f4d58d;
+  --nile: #0e5a7a;
+  --rust: #b3261e;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--void);
+  color: var(--bone);
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Lenis smooth scroll resets */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- typography helpers ---------- */
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(237, 230, 216, 0.55);
+}
+
+.hairline {
+  border-top: 1px solid rgba(237, 230, 216, 0.12);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f4d58d, #d9a441 55%, #9d5b19);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f4d58d, #d9a441, #9d5b19);
+}
+
+/* ---------- film grain overlay (apply on a wrapper element) ---------- */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- ASCII / scanline mode ---------- */
+.ascii :is(img, video) {
+  filter: grayscale(1) contrast(2) brightness(1.1);
+  image-rendering: pixelated;
+}
+.ascii section,
+.ascii article,
+.ascii .ascii-target {
+  filter: grayscale(1) contrast(1.5) brightness(1.05);
+}
+.ascii::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 70;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.45) 0px,
+    rgba(0, 0, 0, 0.45) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* ---------- buttons ---------- */
+.btn-gold {
+  background: linear-gradient(135deg, #f4d58d, #d9a441);
+  color: #08070a;
+  border-radius: 9999px;
+  padding: 0.95rem 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(237, 230, 216, 0.25);
+  color: var(--bone);
+  border-radius: 9999px;
+  padding: 0.95rem 1.7rem;
+  font-weight: 500;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+}
+
+/* ---------- form inputs (hairline editorial) ---------- */
+.input-hair {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(237, 230, 216, 0.2);
+  padding: 0.85rem 0;
+  color: var(--bone);
+  outline: none;
+  font: inherit;
+  transition: border-color 0.25s ease;
+}
+.input-hair::placeholder {
+  color: rgba(237, 230, 216, 0.35);
+}
+.input-hair:focus {
+  border-color: var(--gold);
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 164, 65, 0.35);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 164, 65, 0.6);
+}
+
+/* ---------- selection ---------- */
+::selection {
+  background: rgba(244, 213, 141, 0.35);
+  color: #fff;
+}
+
+/* ---------- prefers reduced motion: dampen heavy effects ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .noise::before {
+    display: none;
+  }
+}
+
+/* ---------- utility keyframes used inline ---------- */
+@keyframes scrollX {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pulseGold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 213, 141, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(244, 213, 141, 0);
+  }
+}
+
+/* hide cursor only on devices that have a fine pointer (desktop) so the InkTrail can shine */
+@media (pointer: fine) {
+  .cursor-ink,
+  .cursor-ink * {
+    cursor: none;
+  }
+}
