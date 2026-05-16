@@ -10,7 +10,6 @@ import MegaMenu from "./components/MegaMenu";
 import AskAI from "./components/AskAI";
 import AsciiToggle from "./components/AsciiToggle";
 import InkTrail from "./components/InkTrail";
-import TransitionMask from "./components/TransitionMask";
 import Marquee from "./components/Marquee";
 import Footer from "./components/Footer";
 
@@ -43,7 +42,10 @@ export default function App() {
       <AskAI open={askOpen} onClose={() => setAskOpen(false)} />
       <AsciiToggle />
       <InkTrail />
-      <TransitionMask />
+      {/* TransitionMask was removed — the radial scroll-progress overlay
+          caused a full-viewport repaint on every frame, which was the main
+          cause of "syrupy" scroll feel. The dark backgrounds + per-section
+          gradients already provide separation between scenes. */}
       <Easter />
 
       <main className="noise relative bg-void text-bone">

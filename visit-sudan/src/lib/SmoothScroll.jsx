@@ -13,11 +13,14 @@ export default function SmoothScroll({ children }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
+    // Tight, snappy easing. The original 1.4s "cinematic" feel made the page
+    // feel laggy on real input — 0.9s with a sharp cubic is much better.
     const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.9,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
       smoothTouch: false,
+      wheelMultiplier: 1.05,
     });
 
     let frame;

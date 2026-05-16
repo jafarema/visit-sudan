@@ -13,16 +13,18 @@ export default function Loader() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    // Faster: ~0.8s total. The previous timing topped out at ~2.4s which
+    // made the site feel slow to load even when assets were ready.
     let v = 0;
     const t = setInterval(() => {
-      v += Math.random() * 9 + 2;
+      v += Math.random() * 18 + 8;
       if (v >= 100) {
         v = 100;
         clearInterval(t);
-        setTimeout(() => setDone(true), 700);
+        setTimeout(() => setDone(true), 220);
       }
       setP(Math.floor(v));
-    }, 95);
+    }, 50);
     return () => clearInterval(t);
   }, []);
 
@@ -31,7 +33,7 @@ export default function Loader() {
       {!done && (
         <motion.div
           exit={{ y: "-100%" }}
-          transition={{ duration: 1.1, ease: [0.7, 0, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.7, 0, 0.3, 1] }}
           className="fixed inset-0 z-[200] origin-top bg-void"
         >
           <div className="flex h-full flex-col justify-between p-6 md:p-10">

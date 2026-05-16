@@ -25,35 +25,30 @@ const CHAPTERS = [
 ];
 
 /**
- * One Chapter component per slide, so each can subscribe to its own
- * useTransform without violating React rules of hooks.
+ * One Chapter component per slide so each can subscribe to its own
+ * useTransform. Crossfade + slide only — no blur filters (those caused
+ * jank on the big serif headings).
  */
 function Chapter({ chapter, index, total, scrollYProgress }) {
   const start = index / total;
   const end = (index + 1) / total;
   const opacity = useTransform(
     scrollYProgress,
-    [start, start + 0.05, end - 0.05, end],
+    [start, start + 0.06, end - 0.06, end],
     [0, 1, 1, 0],
   );
-  const y = useTransform(scrollYProgress, [start, end], [80, -80]);
-  const blur = useTransform(
-    scrollYProgress,
-    [start, start + 0.06, end - 0.06, end],
-    [18, 0, 0, 18],
-  );
-  const filter = useTransform(blur, (b) => `blur(${b}px)`);
+  const y = useTransform(scrollYProgress, [start, end], [60, -60]);
 
   return (
     <motion.div
-      style={{ opacity, y, filter }}
+      style={{ opacity, y }}
       className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
     >
       <p className="eyebrow text-goldSoft">{chapter.era}</p>
-      <h3 className="font-display mt-6 text-7xl leading-[0.88] tracking-mega md:text-[15rem]">
+      <h3 className="font-display mt-4 text-6xl leading-[0.9] tracking-mega md:text-[12rem]">
         <span className="italic text-gold-gradient">{chapter.title}</span>
       </h3>
-      <p className="mt-7 max-w-2xl text-xl text-bone/72 md:text-3xl">
+      <p className="mt-6 max-w-2xl text-lg text-bone/72 md:text-2xl">
         {chapter.line}
       </p>
     </motion.div>
@@ -71,16 +66,17 @@ export default function Saga() {
     <section
       id="saga"
       ref={ref}
-      className="relative h-[500vh] bg-void"
+      // Was 500vh — way too long for 4 chapters. 280vh gives each slide ~70vh
+      // of dwell time, which reads cleanly without feeling like a tunnel.
+      className="relative h-[280vh] bg-void"
     >
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
-        {/* warm radial breath */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 40%, rgba(217,164,65,0.18), transparent 65%)",
+              "radial-gradient(ellipse at 50% 40%, rgba(217,164,65,0.16), transparent 65%)",
           }}
         />
         {CHAPTERS.map((c, i) => (
@@ -93,7 +89,6 @@ export default function Saga() {
           />
         ))}
 
-        {/* corner labels */}
         <div className="absolute left-6 top-6 eyebrow md:left-10 md:top-10">
           Saga · 04 / 09
         </div>

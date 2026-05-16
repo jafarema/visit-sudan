@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-bone/10 bg-void px-6 pt-24 pb-10 md:px-10">
-      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
         <div>
           <p className="eyebrow">Brand</p>
           <p className="mt-4 text-bone/65 leading-7">
@@ -47,7 +47,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <h2 className="mt-20 font-display text-[20vw] leading-[0.8] tracking-mega text-bone/90 md:text-[14vw]">
+      {/* Big wordmark — sized so it never overflows on narrow screens. The
+          previous 20vw on mobile pushed beyond viewport width and caused
+          horizontal scroll. */}
+      <h2 className="mt-20 font-display text-[15vw] leading-[0.85] tracking-mega text-bone/90 md:text-[12vw]">
         Sudan, <span className="italic text-gold-gradient">untold.</span>
       </h2>
 

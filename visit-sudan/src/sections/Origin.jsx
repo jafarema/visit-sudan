@@ -1,7 +1,6 @@
 import { Suspense, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Float, Stars } from "@react-three/drei";
-import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
+import { Float, Stars } from "@react-three/drei";
 import { motion } from "framer-motion";
 import * as THREE from "three";
 
@@ -21,7 +20,7 @@ function Pyramid({ position, scale = 1, color = "#D9A441", speed = 1 }) {
       position[1] + Math.sin(s.clock.elapsedTime * 0.7 * speed) * 0.18;
   });
   return (
-    <mesh ref={ref} position={position} scale={scale} castShadow>
+    <mesh ref={ref} position={position} scale={scale}>
       <coneGeometry args={[1, 1.6, 4]} />
       <meshStandardMaterial
         color={color}
@@ -40,6 +39,8 @@ function SandTerrain() {
   useFrame((s) => {
     material.uniforms.uTime.value = s.clock.elapsedTime;
   });
+  // Lower segment count: 80x80 (=6,400 verts) instead of 160x160 (=25,600).
+  // The wind/fbm shader still reads beautifully and the GPU recovers a lot.
   return (
     <mesh
       ref={meshRef}
@@ -47,7 +48,7 @@ function SandTerrain() {
       position={[0, -2.4, 0]}
       material={material}
     >
-      <planeGeometry args={[80, 80, 160, 160]} />
+      <planeGeometry args={[80, 80, 80, 80]} />
     </mesh>
   );
 }
@@ -75,45 +76,39 @@ function NileLightTrail() {
 
 /**
  * Mouse parallax + slow scroll-driven camera dolly across the Origin scene.
- *
- * Scroll progress is read from window.scrollY relative to the section's own
- * rect, so the camera move only happens while the hero is visible.
+ * Reads the section's bounding rect each frame so the camera move is local
+ * to the hero and doesn't fight scroll elsewhere.
  */
 function CameraRig({ targetRef }) {
   const { camera, size } = useThree();
   const mouse = useRef({ x: 0, y: 0 });
   useFrame(() => {
     const m = (window.__mouseN ||= { x: 0, y: 0 });
-    mouse.current.x += (m.x - mouse.current.x) * 0.04;
-    mouse.current.y += (m.y - mouse.current.y) * 0.04;
+    mouse.current.x += (m.x - mouse.current.x) * 0.06;
+    mouse.current.y += (m.y - mouse.current.y) * 0.06;
 
     let progress = 0;
     if (targetRef.current) {
       const rect = targetRef.current.getBoundingClientRect();
       const total = rect.height - size.height;
       if (total > 0) {
-        progress = Math.min(
-          1,
-          Math.max(0, (-rect.top) / total),
-        );
+        progress = Math.min(1, Math.max(0, -rect.top / total));
       }
     }
 
-    // 5 keyframes: high overhead -> through dunes -> close on pyramids.
+    // 3 keyframes (was 5): wide -> middle -> close. Smoother and snappier.
     const path = [
-      [0, 4.5, 12],
-      [-1.5, 2.6, 9],
-      [1, 1.4, 7],
-      [2.5, 0.9, 5.5],
-      [-0.8, 0.5, 4.2],
+      [0, 4.0, 11],
+      [0.6, 1.8, 7.5],
+      [-0.4, 0.6, 4.6],
     ];
     const f = progress * (path.length - 1);
     const i = Math.floor(f);
     const t = f - i;
     const a = path[i];
     const b = path[Math.min(path.length - 1, i + 1)];
-    const cx = a[0] + (b[0] - a[0]) * t + mouse.current.x * 0.6;
-    const cy = a[1] + (b[1] - a[1]) * t - mouse.current.y * 0.4;
+    const cx = a[0] + (b[0] - a[0]) * t + mouse.current.x * 0.5;
+    const cy = a[1] + (b[1] - a[1]) * t - mouse.current.y * 0.3;
     const cz = a[2] + (b[2] - a[2]) * t;
     camera.position.set(cx, cy, cz);
     camera.lookAt(0, 0.2, 0);
@@ -132,7 +127,9 @@ export default function Origin() {
     <section
       id="origin"
       ref={sectionRef}
-      className="relative h-[180vh] w-full"
+      // Was 180vh — 130vh is plenty of camera travel without dragging the
+      // overall page into "infinite" territory.
+      className="relative h-[130vh] w-full"
       onMouseMove={(e) => {
         // exposes a normalized [-1,1] mouse to the Three.js loop without
         // creating extra React state.
@@ -145,45 +142,42 @@ export default function Origin() {
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <Canvas
-            shadows
-            dpr={[1, 1.75]}
+            // dpr capped lower (1.5 max) — the visual difference at 1.75 is
+            // negligible, the perf difference is large on retina displays.
+            dpr={[1, 1.5]}
             gl={{ antialias: true, powerPreference: "high-performance" }}
-            camera={{ position: [0, 4.5, 12], fov: 52 }}
+            camera={{ position: [0, 4.0, 11], fov: 52 }}
           >
             <color attach="background" args={["#08070A"]} />
             <fog attach="fog" args={["#08070A", 7, 26]} />
 
-            <ambientLight intensity={0.32} />
+            {/* Three lights instead of four; the red rim was barely visible
+                yet doubled the lighting cost on metallic pyramids. */}
+            <ambientLight intensity={0.4} />
             <directionalLight
               position={[6, 9, 4]}
-              intensity={1.4}
+              intensity={1.5}
               color="#F4D58D"
-              castShadow
             />
             <pointLight
               position={[-7, 3, -4]}
-              intensity={2.2}
+              intensity={1.6}
               color="#0E5A7A"
-            />
-            <pointLight
-              position={[6, 1.5, 4]}
-              intensity={1.2}
-              color="#B3261E"
             />
 
             <Suspense fallback={null}>
               <Stars
-                radius={60}
-                depth={28}
-                count={safe ? 2400 : 800}
+                radius={50}
+                depth={20}
+                count={safe ? 800 : 250}
                 factor={3}
                 fade
-                speed={0.6}
+                speed={0.4}
               />
               <SandTerrain />
               <NileLightTrail />
 
-              <Float speed={1.1} rotationIntensity={0.3} floatIntensity={0.5}>
+              <Float speed={1.0} rotationIntensity={0.3} floatIntensity={0.4}>
                 <Pyramid position={[-3, 0, -1]} scale={1.5} />
                 <Pyramid
                   position={[2.5, -0.4, 0]}
@@ -198,54 +192,52 @@ export default function Origin() {
                   scale={1.3}
                   color="#F4D58D"
                 />
-                <Pyramid
-                  position={[-2.4, -0.6, 3.5]}
-                  scale={0.7}
-                  speed={1.5}
-                />
               </Float>
 
-              {safe && <GoldDustField count={1500} />}
-
-              <Environment preset="sunset" />
+              {safe && <GoldDustField count={500} />}
+              {/* Removed Drei <Environment preset="sunset" /> — it pulls a ~1MB
+                  HDR file from a CDN before the canvas renders. The directional
+                  + Nile-blue fill light gives the same warm sunset feel without
+                  the network cost. */}
             </Suspense>
 
             <CameraRig targetRef={sectionRef} />
-
-            {safe && (
-              <EffectComposer>
-                <Bloom
-                  intensity={1.15}
-                  luminanceThreshold={0.22}
-                  luminanceSmoothing={0.9}
-                  mipmapBlur
-                />
-                <Vignette eskil={false} offset={0.15} darkness={1.05} />
-              </EffectComposer>
-            )}
+            {/* Removed <EffectComposer><Bloom/><Vignette/></EffectComposer> —
+                postprocessing is the single biggest perf cost in the scene.
+                The pyramids are already emissive and the fog + page gradient
+                provide a vignette. */}
           </Canvas>
         </div>
 
         {/* atmospheric overlays */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-void/20 via-void/30 to-void" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-void" />
+        {/* CSS-only vignette replacement */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(120% 80% at 50% 55%, transparent 0%, rgba(8,7,10,0.55) 100%)",
+          }}
+        />
 
         {/* hero copy */}
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-28 md:px-10 md:pb-40">
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-10 md:pb-36">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="eyebrow"
           >
             Origin · 01 / 09
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 1.55, ease: [0.2, 0.8, 0.2, 1] }}
-            className="font-display mt-3 text-[14vw] leading-[0.82] tracking-mega md:text-[10rem]"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+            className="font-display mt-3 text-[15vw] leading-[0.85] tracking-mega md:text-[9rem]"
           >
             Sudan,
             <br />
@@ -253,7 +245,7 @@ export default function Origin() {
               className="italic text-gold-gradient"
               style={{
                 display: "inline-block",
-                transform: `scale(${1 + pulse * 0.03})`,
+                transform: `scale(${1 + pulse * 0.02})`,
                 transition: "transform 0.15s ease-out",
               }}
             >
@@ -262,10 +254,10 @@ export default function Origin() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1.95 }}
-            className="mt-7 max-w-xl text-lg leading-7 text-bone/72 md:text-xl"
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-6 max-w-xl text-base leading-7 text-bone/75 md:text-lg"
           >
             Before empires had names, Sudan was already ancient. A land of gold
             deserts, sacred mountains, river kingdoms, and a hospitality that
@@ -273,10 +265,10 @@ export default function Origin() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 2.25 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            transition={{ duration: 0.7, delay: 0.55 }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
             <a href="#journeys" className="btn-gold text-center">
               Explore destinations
