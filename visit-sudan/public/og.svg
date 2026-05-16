@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Visit Sudan — Sudan, untold.">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="78%" r="65%">
+      <stop offset="0%"   stop-color="#3a2412" />
+      <stop offset="50%"  stop-color="#160d08" />
+      <stop offset="100%" stop-color="#08070A" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#F4D58D" />
+      <stop offset="55%"  stop-color="#D9A441" />
+      <stop offset="100%" stop-color="#9D5B19" />
+    </linearGradient>
+    <linearGradient id="pyra1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4D58D" />
+      <stop offset="100%" stop-color="#8a5a1e" />
+    </linearGradient>
+    <linearGradient id="pyra2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D9A441" />
+      <stop offset="100%" stop-color="#3a230b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="55%">
+      <stop offset="0%"   stop-color="#D9A441" stop-opacity="0.55" />
+      <stop offset="60%"  stop-color="#D9A441" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#D9A441" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#sky)" />
+  <ellipse cx="600" cy="500" rx="650" ry="280" fill="url(#glow)" />
+
+  <g opacity="0.55">
+    <polygon points="170,500 250,360 330,500" fill="#5a3a18" />
+    <polygon points="320,510 400,395 480,510" fill="#6b4520" />
+    <polygon points="780,510 860,395 940,510" fill="#6b4520" />
+    <polygon points="930,500 1010,360 1090,500" fill="#5a3a18" />
+  </g>
+
+  <polygon points="350,540 510,260 670,540" fill="url(#pyra1)" />
+  <polygon points="510,260 510,540 670,540" fill="#6b4520" opacity="0.55" />
+
+  <polygon points="640,540 760,330 880,540" fill="url(#pyra2)" />
+  <polygon points="760,330 760,540 880,540" fill="#3a230b" opacity="0.55" />
+
+  <line x1="0" y1="540" x2="1200" y2="540" stroke="#D9A441" stroke-opacity="0.3" stroke-width="1"/>
+
+  <g fill="#F4D58D" opacity="0.85">
+    <circle cx="120" cy="380" r="1.6"/>
+    <circle cx="220" cy="280" r="1.2"/>
+    <circle cx="930" cy="220" r="1.4"/>
+    <circle cx="1080" cy="350" r="1.2"/>
+    <circle cx="980" cy="430" r="1.0"/>
+    <circle cx="190" cy="200" r="1.0"/>
+    <circle cx="420" cy="170" r="1.4"/>
+    <circle cx="750" cy="140" r="1.2"/>
+    <circle cx="600" cy="100" r="1.6"/>
+    <circle cx="300" cy="60"  r="1.0"/>
+    <circle cx="900" cy="80"  r="1.0"/>
+  </g>
+
+  <text x="80" y="115"
+        font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="22"
+        letter-spacing="8"
+        fill="#EDE6D8"
+        opacity="0.7">SUDAN, UNTOLD · 5000 BC — TODAY</text>
+
+  <text x="80" y="290"
+        font-family="Fraunces, Georgia, serif"
+        font-weight="700"
+        font-size="180"
+        letter-spacing="-6"
+        fill="#EDE6D8">Visit</text>
+
+  <text x="80" y="450"
+        font-family="Fraunces, Georgia, serif"
+        font-weight="700"
+        font-style="italic"
+        font-size="180"
+        letter-spacing="-6"
+        fill="url(#goldGrad)">Sudan.</text>
+
+  <text x="1120" y="600" text-anchor="end"
+        font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="18"
+        letter-spacing="6"
+        fill="#EDE6D8"
+        opacity="0.55">A COUNTRY OLDER THAN MEMORY</text>
+</svg>

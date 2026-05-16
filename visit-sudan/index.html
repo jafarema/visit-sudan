@@ -3,34 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#08070A" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#08070A" />
 
-    <title>Visit Sudan — Sudan, Untold</title>
+    <!-- Primary SEO -->
+    <title>Visit Sudan — Sudan, untold.</title>
     <meta
       name="description"
-      content="A cinematic invitation to discover Sudan: ancient kingdoms, golden deserts, Nile legends, Red Sea light, and unforgettable hospitality."
+      content="A cinematic invitation to discover Sudan — ancient kingdoms, golden deserts, Nile legends, Red Sea light, and unforgettable hospitality. Plan your journey."
     />
+    <meta name="keywords" content="Sudan tourism, visit Sudan, Meroë pyramids, Nubian villages, Khartoum, Jebel Barkal, Port Sudan, Red Sea Sudan, desert travel, ancient kingdoms" />
+    <meta name="author" content="Visit Sudan" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
 
+    <!-- Update the canonical URL once you confirm the final path. -->
+    <link rel="canonical" href="https://jafarema.github.io/visit-sudan/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Discord, iMessage…) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Visit Sudan — Sudan, Untold" />
+    <meta property="og:site_name" content="Visit Sudan" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://jafarema.github.io/visit-sudan/" />
+    <meta property="og:title" content="Visit Sudan — Sudan, untold." />
     <meta
       property="og:description"
       content="A country older than memory, warmer than any postcard."
     />
-    <meta property="og:image" content="/images/visit-sudan/meroe-hero.jpg" />
+    <meta property="og:image" content="https://jafarema.github.io/visit-sudan/og.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Visit Sudan — gold pyramids on a black desert sky" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Visit Sudan — Sudan, untold." />
+    <meta name="twitter:description" content="A country older than memory, warmer than any postcard." />
+    <meta name="twitter:image" content="https://jafarema.github.io/visit-sudan/og.svg" />
+    <meta name="twitter:image:alt" content="Visit Sudan — gold pyramids on a black desert sky" />
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070A'/%3E%3Cpolygon points='16,6 26,26 6,26' fill='%23D9A441'/%3E%3C/svg%3E" />
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="mask-icon" href="./icon.svg" color="#D9A441" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     />
+
+    <!-- Structured data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://jafarema.github.io/visit-sudan/#website",
+            "url": "https://jafarema.github.io/visit-sudan/",
+            "name": "Visit Sudan",
+            "description": "A cinematic invitation to discover Sudan.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "TravelAgency",
+            "@id": "https://jafarema.github.io/visit-sudan/#agency",
+            "name": "Visit Sudan",
+            "slogan": "Sudan, untold.",
+            "url": "https://jafarema.github.io/visit-sudan/",
+            "logo": "https://jafarema.github.io/visit-sudan/icon.svg",
+            "image": "https://jafarema.github.io/visit-sudan/og.svg",
+            "areaServed": { "@type": "Country", "name": "Sudan" }
+          },
+          {
+            "@type": "TouristDestination",
+            "@id": "https://jafarema.github.io/visit-sudan/#destination",
+            "name": "Sudan",
+            "description": "Ancient kingdoms, golden deserts, Nile legends, Red Sea horizons, and unforgettable hospitality.",
+            "touristType": [
+              "History travelers", "Adventure travelers", "Cultural travelers", "Photographers"
+            ],
+            "includesAttraction": [
+              { "@type": "TouristAttraction", "name": "Meroë Pyramids" },
+              { "@type": "TouristAttraction", "name": "Khartoum" },
+              { "@type": "TouristAttraction", "name": "Port Sudan" },
+              { "@type": "TouristAttraction", "name": "Suakin" },
+              { "@type": "TouristAttraction", "name": "Jebel Barkal" },
+              { "@type": "TouristAttraction", "name": "Nubian Villages" },
+              { "@type": "TouristAttraction", "name": "Dinder National Park" },
+              { "@type": "TouristAttraction", "name": "The Nile" }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding:3rem;font-family:system-ui;color:#EDE6D8;background:#08070A">
+        <h1 style="font-family:Georgia,serif">Visit Sudan</h1>
+        <p>This is a JavaScript-powered cinematic experience. Please enable JavaScript to explore.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Auto-deploy on push to main
+  push:
+    branches: [main]
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, and let in-progress runs finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# Permissions required by actions/deploy-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Visit Sudan dependencies
+        working-directory: visit-sudan
+        # Use `npm install` (not `ci`) since the repo is committed without a lockfile
+        run: npm install --no-audit --no-fund
+
+      - name: Build Visit Sudan
+        working-directory: visit-sudan
+        run: npm run build
+
+      - name: Assemble site bundle
+        run: |
+          set -eux
+          mkdir -p _site
+
+          # Visit Sudan is the entire site — deploy its build at the root.
+          cp -R visit-sudan/dist/. _site/
+
+          [ -f LICENSE ] && cp LICENSE _site/LICENSE || true
+
+          # Disable Jekyll processing on Pages
+          touch _site/.nojekyll
+
+          echo "----- Final _site layout -----"
+          ls -la _site
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
