@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<!--
+  GitHub Pages SPA 404 fallback.
+
+  Pages serves this file when a deep link is requested directly. We rewrite
+  the URL into a hash route so the React app boots from /index.html and can
+  pick up where the user wanted to go.
+-->
+<head>
+  <meta charset="utf-8" />
+  <title>Visit Sudan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var loc = window.location;
+      // strip the trailing path/query and append it as a hash so the SPA can read it
+      var path = loc.pathname.replace(/^\/+/, "");
+      var hash = path ? ("#/" + path + (loc.search || "")) : "";
+      // GitHub Pages serves the SPA from /<repo>/, so redirect there
+      window.location.replace(loc.origin + "/" + hash);
+    })();
+  </script>
+</head>
+<body style="background:#08070A;color:#EDE6D8;font-family:system-ui;padding:3rem">
+  <p>Loading Visit Sudan…</p>
+</body>
+</html>

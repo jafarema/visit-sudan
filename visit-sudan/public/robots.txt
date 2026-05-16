@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jafarema.github.io/visit-sudan/sitemap.xml
