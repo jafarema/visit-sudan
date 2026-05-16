@@ -46,20 +46,16 @@ jobs:
           set -eux
           mkdir -p _site
 
-          # Heritage site stays at the root of the deployed site
-          cp index.html _site/index.html
-          [ -f LICENSE ] && cp LICENSE _site/LICENSE || true
+          # Visit Sudan is the entire site now — deploy its build at the root.
+          cp -R visit-sudan/dist/. _site/
 
-          # Visit Sudan goes into /visit-sudan/
-          mkdir -p _site/visit-sudan
-          cp -R visit-sudan/dist/. _site/visit-sudan/
+          [ -f LICENSE ] && cp LICENSE _site/LICENSE || true
 
           # Disable Jekyll processing on Pages
           touch _site/.nojekyll
 
           echo "----- Final _site layout -----"
           ls -la _site
-          ls -la _site/visit-sudan | head
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
