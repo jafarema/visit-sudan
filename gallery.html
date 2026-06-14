@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chronicles — Visit Sudan</title>
+<meta name="description" content="Six bilingual chapters on Sudan's sovereign genius — Kerma, Jebel Barkal, the green west of Jebel Marra, Kassala, Suakin, and the hands of the people." />
+<meta name="theme-color" content="#0B0A09" />
+<style>[data-lang-block]{display:none}[data-lang-block="en"]{display:inline}div[data-lang-block="en"]{display:block}</style>
+<link rel="stylesheet" href="assets/app.css" />
+<style>
+  .ch-hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; padding: calc(var(--nav-h) + 60px) 0 70px; background: var(--night); color: var(--on-dark); overflow: hidden; }
+  .ch-hero img { position: absolute; inset: 0; width:100%; height:100%; object-fit: cover; opacity:.46; }
+  .ch-hero .veil { position:absolute; inset:0; background: linear-gradient(180deg, rgba(11,10,9,.5) 0, rgba(11,10,9,0) 40%, rgba(11,10,9,.95) 100%); }
+  .ch-hero .inner { position: relative; z-index: 2; }
+  .ch-hero h1 { font-size: clamp(46px,8vw,124px); line-height:.94; letter-spacing:-0.045em; max-width: 13ch; }
+  .ch-hero h1 em { color: var(--gold-lit); }
+  .ch-hero .lede { margin-top: 22px; max-width: 52ch; color: var(--on-dark-dim); }
+
+  /* opener */
+  .opener { position: relative; min-height: 72vh; display: flex; align-items: center; overflow: hidden; color: var(--on-dark); padding: 96px 0; }
+  .opener img.bg { position: absolute; inset: 0; width:100%; height:100%; object-fit: cover; opacity:.42; }
+  .opener .veil { position:absolute; inset:0; }
+  .opener.indigo { background: var(--nile); } .opener.indigo .veil { background: radial-gradient(80% 80% at 30% 50%, rgba(31,36,71,.6), rgba(11,10,9,.92)); }
+  .opener.sand { background: #5a3320; } .opener.sand .veil { background: radial-gradient(80% 80% at 30% 50%, rgba(90,51,32,.55), rgba(11,10,9,.92)); }
+  .opener.west { background: #2f3d18; } .opener.west .veil { background: radial-gradient(80% 80% at 30% 50%, rgba(47,61,24,.6), rgba(11,10,9,.92)); }
+  .opener.ink { background: var(--night); } .opener.ink .veil { background: radial-gradient(80% 80% at 30% 50%, rgba(40,30,20,.55), rgba(11,10,9,.94)); }
+  .opener .inner { position: relative; z-index: 2; max-width: 760px; }
+  .opener .orn { width: 132px; height: 66px; margin-bottom: 26px; }
+  .opener .num { font-family: var(--font-mono); font-size: 13px; letter-spacing:.4em; color: var(--gold-lit); }
+  html[dir="rtl"] .opener .num { letter-spacing: 0; }
+  .opener h2 { font-size: clamp(40px,6.5vw,98px); line-height:.98; letter-spacing:-0.04em; margin-top: 16px; }
+  .opener h2 em { color: var(--gold-lit); font-style: italic; }
+  html[dir="rtl"] .opener h2 em { font-style: normal; }
+  .opener .lede { margin-top: 22px; font-size: 20px; font-weight: 300; color: var(--on-dark-dim); max-width: 52ch; }
+  .opener .meta { margin-top: 30px; display: flex; gap: 30px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; letter-spacing:.14em; color: var(--on-dark-mute); }
+  html[dir="rtl"] .opener .meta { letter-spacing: 0; }
+  .opener .meta b { color: var(--on-dark); font-weight: 600; }
+
+  /* article */
+  .article { padding: clamp(64px,9vw,128px) 0; }
+  .article .grid { display: grid; grid-template-columns: 300px 1fr; gap: clamp(36px,5vw,72px); align-items: start; }
+  @media (max-width: 900px){ .article .grid { grid-template-columns: 1fr; gap: 28px; } }
+  .aside .marg { font-family: var(--font-display); font-size: 19px; color: var(--ink); padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
+  .aside .facts { margin-top: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .aside .fact .l { font-family: var(--font-mono); font-size: 10px; letter-spacing:.2em; text-transform:uppercase; color: var(--ink-mute); }
+  html[dir="rtl"] .aside .fact .l { letter-spacing:0; text-transform:none; }
+  .aside .fact .v { font-family: var(--font-display); font-size: 18px; margin-top: 3px; }
+  .aside .plate { margin-top: 26px; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; }
+  .aside .plate img { width:100%; height:100%; object-fit: cover; }
+  .article h3 { font-size: clamp(28px,3.4vw,46px); letter-spacing:-0.03em; line-height:1.06; }
+  .article h3 em { color: var(--terracotta); }
+  .article .prose { margin-top: 18px; }
+  .article .prose p { color: var(--ink-soft); font-size: 17px; line-height: 1.7; }
+  html[dir="rtl"] .article .prose p { line-height: 1.95; }
+  .article .prose p + p { margin-top: 16px; }
+  .article .prose h4 { font-family: var(--font-mono); font-size: 12px; letter-spacing:.2em; text-transform:uppercase; color: var(--gold-deep); margin: 30px 0 6px; }
+  html[dir="rtl"] .article .prose h4 { letter-spacing:0; text-transform:none; }
+  .pull { margin: 30px 0; padding-left: 22px; border-left: 2px solid var(--accent); font-family: var(--font-display); font-style: italic; font-size: clamp(22px,2.6vw,30px); line-height:1.25; color: var(--ink); }
+  html[dir="rtl"] .pull { padding-left: 0; padding-right: 22px; border-left: none; border-right: 2px solid var(--accent); font-style: normal; }
+  .pull cite { display:block; margin-top: 12px; font-family: var(--font-mono); font-style: normal; font-size: 11px; letter-spacing:.18em; text-transform:uppercase; color: var(--ink-mute); }
+
+  /* tabag divider */
+  .tabag { display:flex; align-items:center; gap:28px; max-width: 680px; margin: 0 auto; padding: 8px 0; }
+  .tabag .ln { flex:1; height:1px; background: linear-gradient(90deg,transparent,var(--line-2),transparent); }
+  .tabag svg { width: 52px; height: 52px; }
+</style>
+</head>
+<body>
+
+<section class="ch-hero">
+  <img src="images/desert-camp.png" alt="" />
+  <div class="veil"></div>
+  <div class="wrap inner">
+    <p class="eyebrow" style="color:var(--gold-lit)" data-lang-group><span data-lang-block="en">The Chronicles</span><span data-lang-block="ar">الفصول</span><span data-lang-block="fr">Les Chroniques</span><span data-lang-block="es">Las Crónicas</span><span data-lang-block="de">Die Chroniken</span></p>
+    <h1 style="margin-top:16px" data-lang-group>
+      <span data-lang-block="en">An independent African <em>civilisation.</em></span>
+      <span data-lang-block="ar">حضارةٌ أفريقيّةٌ <em>مستقلّة.</em></span>
+      <span data-lang-block="fr">Une civilisation africaine <em>indépendante.</em></span>
+      <span data-lang-block="es">Una civilización africana <em>independiente.</em></span>
+      <span data-lang-block="de">Eine unabhängige afrikanische <em>Zivilisation.</em></span>
+    </h1>
+    <p class="lede" data-lang-group>
+      <span data-lang-block="en">Six chapters, told on Sudan's own terms — from the mudbrick spires of Kerma to the coral citadel of Suakin, and the living hands between.</span>
+      <span data-lang-block="ar">ستّةُ فصول، تُروى على شروطِ السودانِ هو — من صروحِ كرمةَ الطينيّةِ إلى قلعةِ سواكنَ المرجانيّة، والأيادي الحيّةِ بينهما.</span>
+      <span data-lang-block="fr">Six chapitres, racontés selon les termes du Soudan — des flèches de brique de Kerma à la citadelle de corail de Suakin.</span>
+      <span data-lang-block="es">Seis capítulos, contados en los términos de Sudán — de las agujas de barro de Kerma a la ciudadela de coral de Suakin.</span>
+      <span data-lang-block="de">Sechs Kapitel, zu Sudans eigenen Bedingungen erzählt — von den Lehmziegeltürmen Kermas zur Korallenzitadelle Suakins.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== I · KERMA ===== -->
+<section class="opener indigo" id="kerma">
+  <img class="bg" src="images/nubian-village.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linejoin="round"><path d="M40 92 L40 44 L60 36 L60 30 L78 24 L122 24 L140 30 L140 36 L160 44 L160 92 Z"/><path d="M60 92 L60 50 L140 50 L140 92"/><path d="M88 92 L88 64 L112 64 L112 92"/><line x1="32" y1="92" x2="168" y2="92"/></svg>
+    <p class="num">I — <span data-lang-group><span data-lang-block="en">Chapter One</span><span data-lang-block="ar">الفصل الأول</span><span data-lang-block="fr">Chapitre Un</span><span data-lang-block="es">Capítulo Uno</span><span data-lang-block="de">Kapitel Eins</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">The Sovereign Spires of <em>Kerma.</em></span><span data-lang-block="ar">صروحُ <em>كرمة</em> ذاتِ السيادة.</span><span data-lang-block="fr">Les flèches souveraines de <em>Kerma.</em></span><span data-lang-block="es">Las agujas soberanas de <em>Kerma.</em></span><span data-lang-block="de">Die souveränen Türme von <em>Kerma.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">From 2500 BC, one of Africa's earliest and most formidable independent urban civilisations — risen entirely on its own genius above the Third Cataract.</span><span data-lang-block="ar">منذ ٢٥٠٠ قبل الميلاد، واحدةٌ من أقدمِ وأقوى الحضاراتِ الحضريّةِ المستقلّةِ في أفريقيا — قامت بعبقريّتها وحدها فوقَ الشلّالِ الثالث.</span></p>
+    <div class="meta" data-lang-group><span data-lang-block="en"><b>2500 BC</b> Founded</span><span data-lang-block="ar"><b>٢٥٠٠ ق.م</b> التأسيس</span><span>·</span><span><b>18 m</b> Deffufa</span><span>·</span><span><b>1,000 yr</b> Sovereign</span></div>
+  </div>
+</section>
+<section class="article">
+  <div class="wrap grid">
+    <aside class="aside reveal">
+      <div class="marg" data-lang-group><span data-lang-block="en">Kerma &amp; the Western Deffufa</span><span data-lang-block="ar">كرمة والدَّفُّوفة الغربيّة</span></div>
+      <div class="facts">
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Founded</span><span data-lang-block="ar">التأسيس</span></div><div class="v">c. 2500 BC</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Deffufa</span><span data-lang-block="ar">الدفوفة</span></div><div class="v">18 m mudbrick</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">River</span><span data-lang-block="ar">النهر</span></div><div class="v">Third Cataract</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Craft</span><span data-lang-block="ar">الصناعة</span></div><div class="v">Bronze · faience</div></div>
+      </div>
+      <div class="plate"><img src="images/desert-camp.png" alt="" /></div>
+    </aside>
+    <div class="reveal" data-d="1">
+      <h3 data-lang-group><span data-lang-block="en">A city of mudbrick that ruled for <em>a thousand years.</em></span><span data-lang-block="ar">مدينةٌ من الطّوبِ اللَّبِنِ حكمت <em>ألفَ عام.</em></span></h3>
+      <div class="prose" data-lang-group>
+        <div data-lang-block="en">
+          <p>Rising above the fertile plains of the Third Cataract, Kerma developed its architectural and political zenith entirely outside any external imperial sphere. The capital was engineered with specialised residential quarters, bronze-forging complexes, and workshops for blue faience and glazed quartzite.</p>
+          <h4>The Western Deffufa</h4>
+          <p>The spiritual heart was the Western Deffufa — a colossal temple of millions of sun-baked bricks, rising over 18 metres. Its builders rejected foreign iconography, relying on an indigenous animist and cosmic theology.</p>
+          <div class="pull">A sovereign African empire that held regional dominance for over a thousand years.<cite>The royal necropolis of Kerma</cite></div>
+          <p>The surrounding royal tumuli, ringed with black sandstone and white quartz pebbles, testify to a state that answered to no one but itself.</p>
+        </div>
+        <div data-lang-block="ar">
+          <p>فوقَ سهولِ الشلّالِ الثالثِ الخصبة، بلغت كرمةُ ذروتَها المعماريّةَ والسياسيّةَ خارجَ أيِّ فلكٍ إمبراطوريٍّ أجنبيّ. صُمّمتِ العاصمةُ بأحياءٍ سكنيّةٍ متخصّصة، ومسابكِ برونز، وورشٍ للفاينسِ الأزرقِ والكوارتزِ المزجّج.</p>
+          <h4>الدَّفُّوفة الغربيّة</h4>
+          <p>كان القلبُ الروحيُّ هو الدَّفُّوفةَ الغربيّة — معبدٌ هائلٌ من ملايينِ الطّوبِ المجفّفِ بالشمس، يرتفعُ أكثرَ من ١٨ متراً. رفضَ بنّاؤوها الأيقوناتِ الأجنبيّة، معتمدينَ على عقيدةٍ محليّةٍ كونيّة.</p>
+          <div class="pull">إمبراطوريّةٌ أفريقيّةٌ ذاتُ سيادةٍ بسطت هيمنتَها أكثرَ من ألفِ عام.<cite>الجبّانةُ الملكيّةُ بكرمة</cite></div>
+          <p>والمقابرُ الملكيّةُ المحيطةُ، المطوّقةُ بالحجرِ الرمليِّ الأسودِ وحصى الكوارتزِ الأبيض، تشهدُ على دولةٍ لم تُجِب أحداً سوى نفسِها.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabag" aria-hidden="true"><span class="ln"></span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#9E4733" stroke-width=".8"/><g fill="none" stroke="#9E4733" stroke-width=".6"><circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="8"/></g><g fill="#9E4733"><polygon points="50,4 53,12 47,12"/><polygon points="50,96 53,88 47,88"/><polygon points="4,50 12,53 12,47"/><polygon points="96,50 88,53 88,47"/></g></svg><span class="ln"></span></div>
+
+<!-- ===== II · BARKAL ===== -->
+<section class="opener sand" id="barkal">
+  <img class="bg" src="images/jebel-barkal.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linejoin="round"><path d="M28 86 Q40 40 70 36 L130 36 Q160 40 172 86 Z"/><path d="M84 36 L84 18 L116 18 L116 36"/><path d="M70 86 L70 60 L88 60 L88 86 M112 86 L112 60 L130 60 L130 86"/><line x1="20" y1="86" x2="180" y2="86"/></svg>
+    <p class="num">II — <span data-lang-group><span data-lang-block="en">Chapter Two</span><span data-lang-block="ar">الفصل الثاني</span><span data-lang-block="fr">Chapitre Deux</span><span data-lang-block="es">Capítulo Dos</span><span data-lang-block="de">Kapitel Zwei</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">The Granite Sentinels of <em>Barkal.</em></span><span data-lang-block="ar">حُرّاسُ <em>البركلِ</em> الجرانيتيّون.</span><span data-lang-block="fr">Les sentinelles de granite de <em>Barkal.</em></span><span data-lang-block="es">Los centinelas de granito de <em>Barkal.</em></span><span data-lang-block="de">Die Granitwächter von <em>Barkal.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">A sandstone mesa towering 104 metres above the desert — the sacred epicentre of the Kushite Empire and dwelling-place of the god Amun.</span><span data-lang-block="ar">هضبةٌ رمليّةٌ تشمخُ ١٠٤ أمتارٍ فوقَ الصحراء — قلبُ مملكةِ كوشَ المقدّس، وموطنُ الإلهِ آمون.</span></p>
+    <div class="meta" data-lang-group><span data-lang-block="en"><b>104 m</b> Holy mountain</span><span data-lang-block="ar"><b>١٠٤ م</b> الجبل المقدّس</span><span>·</span><span><b>Napata</b></span><span>·</span><span><b>Amun</b></span></div>
+  </div>
+</section>
+<section class="article">
+  <div class="wrap grid">
+    <aside class="aside reveal">
+      <div class="marg" data-lang-group><span data-lang-block="en">Jebel Barkal &amp; Napata</span><span data-lang-block="ar">جبل البركل ونبتة</span></div>
+      <div class="facts">
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Height</span><span data-lang-block="ar">الارتفاع</span></div><div class="v">104 m</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Deity</span><span data-lang-block="ar">الإله</span></div><div class="v">Amun</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Palace</span><span data-lang-block="ar">القصر</span></div><div class="v">Natakamani</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Platform</span><span data-lang-block="ar">المنصّة</span></div><div class="v">61 × 61 m</div></div>
+      </div>
+      <div class="plate"><img src="images/jebel-barkal.png" alt="" /></div>
+    </aside>
+    <div class="reveal" data-d="1">
+      <h3 data-lang-group><span data-lang-block="en">The mountain where <em>kings were made.</em></span><span data-lang-block="ar">الجبلُ الذي <em>يُصنَعُ فيه الملوك.</em></span></h3>
+      <div class="prose" data-lang-group>
+        <div data-lang-block="en">
+          <p>Rising abruptly from flat desert, the isolated mesa of Jebel Barkal was the ultimate sacred epicentre of the Kushite Empire. Its sheer cliffs were recognised as the earthly dwelling of the god Amun.</p>
+          <h4>The sacred landscape of Napata</h4>
+          <p>At its base the kings built the Great Temple of Amun and the rock-cut Temple of Mut. No king could ascend the throne without travelling here for the god's blessing.</p>
+          <div class="pull">An enduring symbol of a completely autonomous, high-culture African state.<cite>The Palace of Natakamani</cite></div>
+          <p>In the Meroitic golden age they raised the Palace of Natakamani on a platform over 61 metres a side, adorned with glazed tiles and sandstone columns.</p>
+        </div>
+        <div data-lang-block="ar">
+          <p>ناهضاً فجأةً من الصحراءِ المسطّحة، كان جبلُ البركلِ المنعزلُ القلبَ المقدّسَ لمملكةِ كوش. عُرفت جروفُه الشاهقةُ موطناً أرضيّاً للإلهِ آمون.</p>
+          <h4>مجمعُ نبتةَ المقدّس</h4>
+          <p>عند سفحهِ بنى الملوكُ معبدَ آمونَ الكبيرَ ومعبدَ موتَ المنحوتَ في الصخر. ما كان ملكٌ يجلسُ على العرشِ دونَ أن يأتيَ هنا لبركةِ الإله.</p>
+          <div class="pull">رمزٌ خالدٌ لدولةٍ أفريقيّةٍ ذاتِ سيادةٍ وثقافةٍ رفيعة.<cite>قصرُ نتكامني</cite></div>
+          <p>وفي العصرِ المرويِّ الذهبيِّ رفعوا قصرَ نتكامني على منصّةٍ يزيدُ ضلعُها على ٦١ متراً، مزيّنةً بالقاشانيِّ وأعمدةِ الحجرِ الرمليّ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabag" aria-hidden="true"><span class="ln"></span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#9E4733" stroke-width=".8"/><g fill="none" stroke="#9E4733" stroke-width=".6"><circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="8"/></g><g fill="#9E4733"><polygon points="50,4 53,12 47,12"/><polygon points="50,96 53,88 47,88"/><polygon points="4,50 12,53 12,47"/><polygon points="96,50 88,53 88,47"/></g></svg><span class="ln"></span></div>
+
+<!-- ===== III · WEST / JEBEL MARRA ===== -->
+<section class="opener west" id="marra">
+  <img class="bg" src="images/nubian-village.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linejoin="round"><path d="M16 88 Q50 30 86 88 Z"/><path d="M70 88 Q104 14 138 88 Z"/><path d="M124 88 Q156 40 188 88 Z"/><circle cx="104" cy="40" r="5" fill="#D4AF37" stroke="none"/><line x1="10" y1="88" x2="192" y2="88"/></svg>
+    <p class="num">III — <span data-lang-group><span data-lang-block="en">Chapter Three</span><span data-lang-block="ar">الفصل الثالث</span><span data-lang-block="fr">Chapitre Trois</span><span data-lang-block="es">Capítulo Tres</span><span data-lang-block="de">Kapitel Drei</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">The Green Crown of the <em>West.</em></span><span data-lang-block="ar">التاجُ الأخضرُ في <em>الغرب.</em></span><span data-lang-block="fr">La couronne verte de <em>l'Ouest.</em></span><span data-lang-block="es">La corona verde del <em>Oeste.</em></span><span data-lang-block="de">Die grüne Krone des <em>Westens.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">In the heart of Darfur, the volcanic massif of Jebel Marra rises green and cool above the desert — Sudan's highest land, and its most fertile secret.</span><span data-lang-block="ar">في قلبِ دارفور، يرتفعُ جبلُ مرّةَ البركانيُّ أخضرَ بارداً فوقَ الصحراء — أعلى أراضي السودان، وأخصبُ أسرارِها.</span></p>
+    <div class="meta" data-lang-group><span data-lang-block="en"><b>3,042 m</b> Summit</span><span data-lang-block="ar"><b>٣٠٤٢ م</b> القمّة</span><span>·</span><span><b>Deriba</b> Crater lakes</span><span>·</span><span><b>Darfur</b></span></div>
+  </div>
+</section>
+<section class="article">
+  <div class="wrap grid">
+    <aside class="aside reveal">
+      <div class="marg" data-lang-group><span data-lang-block="en">Jebel Marra &amp; Darfur</span><span data-lang-block="ar">جبل مرّة ودارفور</span></div>
+      <div class="facts">
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Summit</span><span data-lang-block="ar">القمّة</span></div><div class="v">3,042 m</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Crater lakes</span><span data-lang-block="ar">بحيرات الفوهة</span></div><div class="v">Deriba</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Climate</span><span data-lang-block="ar">المناخ</span></div><div class="v" data-lang-group><span data-lang-block="en">Cool · wet</span><span data-lang-block="ar">باردٌ ممطر</span></div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Grown</span><span data-lang-block="ar">المحاصيل</span></div><div class="v" data-lang-group><span data-lang-block="en">Citrus · grain</span><span data-lang-block="ar">حمضيّات · حبوب</span></div></div>
+      </div>
+      <div class="plate"><img src="images/nubian-village.png" alt="" /></div>
+    </aside>
+    <div class="reveal" data-d="1">
+      <h3 data-lang-group><span data-lang-block="en">A volcano that the <em>desert keeps green.</em></span><span data-lang-block="ar">بركانٌ تُبقيهِ <em>الصحراءُ أخضر.</em></span></h3>
+      <div class="prose" data-lang-group>
+        <div data-lang-block="en">
+          <p>Jebel Marra is the great exception to the Sudanese desert. A dormant volcanic massif at the heart of Darfur, it climbs to 3,042 metres — the highest point in the country — and catches enough rain to stay green when everything around it is sand.</p>
+          <h4>The crater lakes of Deriba</h4>
+          <p>At its summit lie the Deriba lakes, twin crater pools of startling blue, formed by a vast eruption millennia ago. Hot springs, waterfalls and terraced orchards of citrus, pomegranate and grain ring the slopes below.</p>
+          <div class="pull">The west is not the edge of Sudan. It is one of its greenest hearts.<cite>The massif of Jebel Marra</cite></div>
+          <p>For the Fur and the communities of the western highlands, Marra is homeland, larder and landmark at once — a cool, fertile world that few outside Sudan know exists.</p>
+        </div>
+        <div data-lang-block="ar">
+          <p>جبلُ مرّةَ هو الاستثناءُ الكبيرُ في صحراءِ السودان. كتلةٌ بركانيّةٌ خامدةٌ في قلبِ دارفور، ترتفعُ إلى ٣٠٤٢ متراً — أعلى نقطةٍ في البلاد — وتلتقطُ من المطرِ ما يكفي لتبقى خضراءَ وكلُّ ما حولها رمل.</p>
+          <h4>بحيرتا فوهةِ دريبة</h4>
+          <p>عند قمّتِها تقعُ بحيرتا دريبة، بِركتا فوهةٍ توأمانِ بزرقةٍ مذهلة، تشكّلتا من ثورانٍ هائلٍ قبلَ آلافِ السنين. وتُطوّقُ المنحدراتِ أسفلَها ينابيعُ حارّةٌ وشلّالاتٌ وبساتينُ مدرّجةٌ من الحمضيّاتِ والرمّانِ والحبوب.</p>
+          <div class="pull">الغربُ ليس حافّةَ السودان. بل أحدُ أكثرِ قلوبِه خُضرة.<cite>كتلةُ جبلِ مرّة</cite></div>
+          <p>وعندَ الفورِ ومجتمعاتِ المرتفعاتِ الغربيّة، مرّةُ وطنٌ ومخزنٌ ومَعلمٌ في آن — عالمٌ باردٌ خصيبٌ قلّما يعرفُ أحدٌ خارجَ السودانِ أنّه موجود.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabag" aria-hidden="true"><span class="ln"></span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#9E4733" stroke-width=".8"/><g fill="none" stroke="#9E4733" stroke-width=".6"><circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="8"/></g><g fill="#9E4733"><polygon points="50,4 53,12 47,12"/><polygon points="50,96 53,88 47,88"/><polygon points="4,50 12,53 12,47"/><polygon points="96,50 88,53 88,47"/></g></svg><span class="ln"></span></div>
+
+<!-- ===== IV · KASSALA ===== -->
+<section class="opener ink" id="kassala">
+  <img class="bg" src="images/desert-camp.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linejoin="round"><path d="M24 88 Q40 34 64 34 Q88 34 100 88 Z"/><path d="M78 88 Q98 20 120 20 Q142 20 150 88 Z"/><path d="M132 88 Q148 48 166 48 Q182 48 188 88 Z"/><line x1="16" y1="88" x2="192" y2="88"/></svg>
+    <p class="num">IV — <span data-lang-group><span data-lang-block="en">Chapter Four</span><span data-lang-block="ar">الفصل الرابع</span><span data-lang-block="fr">Chapitre Quatre</span><span data-lang-block="es">Capítulo Cuatro</span><span data-lang-block="de">Kapitel Vier</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">The Emerald Spires of <em>Kassala.</em></span><span data-lang-block="ar">صروحُ <em>كسلا</em> الزمرّديّة.</span><span data-lang-block="fr">Les flèches émeraude de <em>Kassala.</em></span><span data-lang-block="es">Las agujas esmeralda de <em>Kassala.</em></span><span data-lang-block="de">Die smaragdenen Türme von <em>Kassala.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">The Taka Mountains break the eastern horizon with granite domes that rise sheer from the savannah — a crossroads of culture, water and song.</span><span data-lang-block="ar">جبالُ التاكا تكسرُ أفقَ الشرقِ بقبابٍ جرانيتيّةٍ تنهضُ شاهقةً من السهل — ملتقى الثقافةِ والماءِ والغناء.</span></p>
+    <div class="meta" data-lang-group><span data-lang-block="en"><b>Taka</b> Granite domes</span><span data-lang-block="ar"><b>التاكا</b> قباب جرانيت</span><span>·</span><span><b>Gash</b> River</span><span>·</span><span><b>Totil</b> Spring</span></div>
+  </div>
+</section>
+<section class="article">
+  <div class="wrap grid">
+    <aside class="aside reveal">
+      <div class="marg" data-lang-group><span data-lang-block="en">Kassala &amp; the Taka Mountains</span><span data-lang-block="ar">كسلا وجبال التاكا</span></div>
+      <div class="facts">
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Range</span><span data-lang-block="ar">السلسلة</span></div><div class="v">Taka</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">River</span><span data-lang-block="ar">النهر</span></div><div class="v" data-lang-group><span data-lang-block="en">Gash · endorheic</span><span data-lang-block="ar">القاش · داخليّ</span></div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Spring</span><span data-lang-block="ar">البئر</span></div><div class="v">Totil</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Dance</span><span data-lang-block="ar">الرقصة</span></div><div class="v" data-lang-group><span data-lang-block="en">Beja sword</span><span data-lang-block="ar">عرضة البجا</span></div></div>
+      </div>
+      <div class="plate"><img src="images/desert-camp.png" alt="" /></div>
+    </aside>
+    <div class="reveal" data-d="1">
+      <h3 data-lang-group><span data-lang-block="en">Granite domes, an inland river, and a <em>promise to return.</em></span><span data-lang-block="ar">قبابٌ من جرانيت، ونهرٌ داخليّ، و<em>وعدٌ بالعودة.</em></span></h3>
+      <div class="prose" data-lang-group>
+        <div data-lang-block="en">
+          <p>The dramatic Taka Mountains rise abruptly from the savannah as the backdrop to Kassala, a historic cultural crossroads near the eastern frontier.</p>
+          <h4>The river that never reaches the sea</h4>
+          <p>The seasonal Gash is an endorheic river — it never empties into any ocean, instead terminating in an inland delta, creating a fertile sanctuary of fruit orchards amid the semi-arid plains.</p>
+          <div class="pull">Whoever drinks of its pure waters is destined to return to Kassala.<cite>The legend of the Totil Spring</cite></div>
+          <p>The region's heritage lives in the elaborate jebena coffee ceremony and the sword dances of the Beja, whose synchronised movements display a fierce, independent martial history.</p>
+        </div>
+        <div data-lang-block="ar">
+          <p>تنهضُ جبالُ التاكا المهيبةُ فجأةً من السهلِ خلفيّةً لكسلا، ملتقى الثقافاتِ التاريخيِّ قربَ الحدودِ الشرقيّة.</p>
+          <h4>النهرُ الذي لا يبلغُ البحر</h4>
+          <p>القاشُ الموسميُّ نهرٌ داخليّ — لا يصبُّ في بحر، بل ينتهي في دلتا داخليّةٍ تصنعُ واحةً خصبةً من بساتينِ الفاكهةِ وسطَ السهولِ شبهِ القاحلة.</p>
+          <div class="pull">من شربَ من مائِها الصافي حُتِمَ عليهِ أن يعودَ إلى كسلا.<cite>أسطورةُ بئرِ توتيل</cite></div>
+          <p>يعيشُ تراثُ المنطقةِ في طقسِ الجبنةِ المفصّل، وفي عرضةِ السيفِ عند البجا، حيثُ تنطقُ حركاتُهم المتناغمةُ بتاريخٍ بأسٍ واستقلال.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabag" aria-hidden="true"><span class="ln"></span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#9E4733" stroke-width=".8"/><g fill="none" stroke="#9E4733" stroke-width=".6"><circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="8"/></g><g fill="#9E4733"><polygon points="50,4 53,12 47,12"/><polygon points="50,96 53,88 47,88"/><polygon points="4,50 12,53 12,47"/><polygon points="96,50 88,53 88,47"/></g></svg><span class="ln"></span></div>
+
+<!-- ===== V · SUAKIN ===== -->
+<section class="opener sand" id="suakin">
+  <img class="bg" src="images/red-sea-port-sudan.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.2" stroke-linejoin="round"><path d="M64 92 L64 40 Q64 22 100 22 Q136 22 136 40 L136 92 Z"/><path d="M64 40 Q100 30 136 40 M72 56 L128 56 M72 72 L128 72"/><path d="M84 40 L84 92 M100 34 L100 92 M116 40 L116 92"/><line x1="52" y1="92" x2="148" y2="92"/></svg>
+    <p class="num">V — <span data-lang-group><span data-lang-block="en">Chapter Five</span><span data-lang-block="ar">الفصل الخامس</span><span data-lang-block="fr">Chapitre Cinq</span><span data-lang-block="es">Capítulo Cinco</span><span data-lang-block="de">Kapitel Fünf</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">The Sunken Citadel of <em>Suakin.</em></span><span data-lang-block="ar">قلعةُ <em>سواكنَ</em> الغارقة.</span><span data-lang-block="fr">La citadelle engloutie de <em>Suakin.</em></span><span data-lang-block="es">La ciudadela hundida de <em>Suakin.</em></span><span data-lang-block="de">Die versunkene Zitadelle von <em>Suakin.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">A perfectly circular island in a Red Sea inlet — a masterwork of coral-stone engineering, and Africa's gateway to the wider world.</span><span data-lang-block="ar">جزيرةٌ مدوّرةٌ تماماً في مرسًى على البحرِ الأحمر — تحفةُ هندسةٍ من حجرِ المرجان، وبوّابةُ أفريقيا إلى العالم.</span></p>
+    <div class="meta" data-lang-group><span data-lang-block="en"><b>Coral</b> Island</span><span data-lang-block="ar"><b>مرجان</b> الجزيرة</span><span>·</span><span><b>Roshan</b> Casements</span><span>·</span><span><b>Red Sea</b></span></div>
+  </div>
+</section>
+<section class="article">
+  <div class="wrap grid">
+    <aside class="aside reveal">
+      <div class="marg" data-lang-group><span data-lang-block="en">Suakin Island, Red Sea</span><span data-lang-block="ar">جزيرة سواكن، البحر الأحمر</span></div>
+      <div class="facts">
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Island</span><span data-lang-block="ar">الجزيرة</span></div><div class="v" data-lang-group><span data-lang-block="en">Circular</span><span data-lang-block="ar">مدوّرة</span></div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Material</span><span data-lang-block="ar">المادّة</span></div><div class="v" data-lang-group><span data-lang-block="en">Madrepore coral</span><span data-lang-block="ar">مرجان</span></div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Windows</span><span data-lang-block="ar">النوافذ</span></div><div class="v">Roshan · teak</div></div>
+        <div class="fact"><div class="l" data-lang-group><span data-lang-block="en">Role</span><span data-lang-block="ar">الدور</span></div><div class="v" data-lang-group><span data-lang-block="en">Trade gateway</span><span data-lang-block="ar">بوّابة تجارة</span></div></div>
+      </div>
+      <div class="plate"><img src="images/red-sea-port-sudan.png" alt="" /></div>
+    </aside>
+    <div class="reveal" data-d="1">
+      <h3 data-lang-group><span data-lang-block="en">A city cut entirely from <em>the living reef.</em></span><span data-lang-block="ar">مدينةٌ نُحِتت بكاملِها من <em>الشِّعابِ الحيّة.</em></span></h3>
+      <div class="prose" data-lang-group>
+        <div data-lang-block="en">
+          <p>On a perfectly circular island in a protected Red Sea inlet, Suakin was for millennia the gateway connecting the African interior with the Indian Ocean, the Mediterranean, and the pilgrimage routes to Mecca.</p>
+          <h4>Red Sea architecture</h4>
+          <p>Every house, mosque and public building was built entirely of hand-cut madrepore coral quarried from the sea-bed, coated in sun-reflecting white lime, and fitted with carved teak casement windows called Roshan.</p>
+          <div class="pull">A sovereign coastal fortress where African, Ottoman and Indian maritime legacies merged.<cite>The sea-gates of Suakin</cite></div>
+          <p>Though the coral structures now rest in evocative ruins, the documentation of its sea-gates and submerged wrecks reveals a dense, multi-layered history.</p>
+        </div>
+        <div data-lang-block="ar">
+          <p>على جزيرةٍ مدوّرةٍ تماماً في مرسًى محميٍّ بالبحرِ الأحمر، كانت سواكنُ لآلافِ السنينَ البوّابةَ الرابطةَ بين قلبِ أفريقيا والمحيطِ الهنديِّ والبحرِ المتوسّطِ ودروبِ الحجِّ إلى مكّة.</p>
+          <h4>عمارةُ البحرِ الأحمر</h4>
+          <p>كلُّ بيتٍ ومسجدٍ ومبنًى عامٍّ بُنيَ بالكاملِ من حجرِ المرجانِ المقطوعِ يدويّاً من قاعِ البحر، مكسوّاً بالجيرِ الأبيضِ العاكسِ للشمس، ومزوّداً بنوافذِ الساجِ المنحوتةِ المسمّاةِ بالرواشين.</p>
+          <div class="pull">قلعةٌ ساحليّةٌ ذاتُ سيادةٍ التقت فيها موروثاتُ أفريقيا والعثمانيّينَ والهندِ البحريّة.<cite>بواباتُ سواكنَ البحريّة</cite></div>
+          <p>ورغمَ أنَّ المبانيَ المرجانيّةَ صارت أطلالاً موحية، يكشفُ توثيقُ بواباتِها البحريّةِ وحطامِها الغارقِ عن تاريخٍ كثيفٍ متعدّدِ الطبقات.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabag" aria-hidden="true"><span class="ln"></span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#9E4733" stroke-width=".8"/><g fill="none" stroke="#9E4733" stroke-width=".6"><circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="8"/></g><g fill="#9E4733"><polygon points="50,4 53,12 47,12"/><polygon points="50,96 53,88 47,88"/><polygon points="4,50 12,53 12,47"/><polygon points="96,50 88,53 88,47"/></g></svg><span class="ln"></span></div>
+
+<!-- ===== VI · HANDS ===== -->
+<section class="opener indigo" id="hands">
+  <img class="bg" src="images/coffee-ritual.png" alt="" /><div class="veil"></div>
+  <div class="wrap inner reveal">
+    <svg class="orn" viewBox="0 0 200 100" fill="none" stroke="#D4AF37" stroke-width="1.2" stroke-linejoin="round"><circle cx="100" cy="54" r="30"/><circle cx="100" cy="54" r="20"/><circle cx="100" cy="54" r="10"/><line x1="40" y1="88" x2="160" y2="88"/></svg>
+    <p class="num">VI — <span data-lang-group><span data-lang-block="en">Chapter Six</span><span data-lang-block="ar">الفصل السادس</span><span data-lang-block="fr">Chapitre Six</span><span data-lang-block="es">Capítulo Seis</span><span data-lang-block="de">Kapitel Sechs</span></span></p>
+    <h2 data-lang-group><span data-lang-block="en">Hands of the <em>People.</em></span><span data-lang-block="ar">أيادي <em>الناس.</em></span><span data-lang-block="fr">Les mains du <em>peuple.</em></span><span data-lang-block="es">Manos del <em>pueblo.</em></span><span data-lang-block="de">Hände des <em>Volkes.</em></span></h2>
+    <p class="lede" data-lang-group><span data-lang-block="en">The kingdoms ended; the craft did not. The jebena pot, the woven tabag, the painted door and bridal henna carry the archive forward, hand to hand.</span><span data-lang-block="ar">انتهتِ الممالك؛ لكنَّ الحرفةَ لم تنتهِ. إبريقُ الجبنة، والطبقُ المنسوج، والبابُ المرسوم، وحنّاءُ العروس، تحملُ الأرشيفَ قُدُماً، يداً بيد.</span></p>
+    <div class="meta"><a class="btn btn-accent" href="heritage.html" data-lang-group><span data-lang-block="en">See the heritage</span><span data-lang-block="ar">شاهد التراث</span><span data-lang-block="fr">Voir le patrimoine</span><span data-lang-block="es">Ver el patrimonio</span><span data-lang-block="de">Erbe ansehen</span><span class="arrow" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<script>window.PAGE="chronicles";</script>
+<script src="assets/app.js"></script>
+</body>
+</html>

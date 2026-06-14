@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>News — Visit Sudan</title>
+<meta name="description" content="Dispatches from the field — cultural, archaeological and natural news from across Sudan." />
+<meta name="theme-color" content="#0B0A09" />
+<style>[data-lang-block]{display:none}[data-lang-block="en"]{display:inline}div[data-lang-block="en"]{display:block}</style>
+<link rel="stylesheet" href="assets/app.css" />
+<style>
+  .page-hero { position: relative; padding: calc(var(--nav-h) + 88px) 0 72px; background: var(--night); color: var(--on-dark); overflow: hidden; }
+  .page-hero .glow { position:absolute; inset:0; background: radial-gradient(70% 60% at 78% 8%, rgba(212,175,55,.16), transparent 56%); }
+  .page-hero .inner { position: relative; z-index: 2; }
+  .page-hero h1 { font-size: clamp(44px,7vw,104px); line-height:.98; letter-spacing:-0.04em; }
+  .page-hero h1 em { color: var(--gold-lit); }
+  .page-hero .lede { margin-top: 22px; max-width: 50ch; color: var(--on-dark-dim); }
+
+  /* feature lead story */
+  .lead-story { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(28px,4vw,56px); align-items: center; padding-top: 8px; }
+  @media (max-width: 880px){ .lead-story { grid-template-columns: 1fr; } }
+  .lead-story .media { border-radius: 24px; overflow: hidden; aspect-ratio: 16/11; box-shadow: 0 40px 80px -50px rgba(26,26,26,.5); }
+  .lead-story .media img { width:100%; height:100%; object-fit: cover; transition: transform 1.1s var(--ease); }
+  .lead-story:hover .media img { transform: scale(1.04); }
+  .nk-tag { font-family: var(--font-mono); font-size: 11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color: var(--terracotta); }
+  html[dir="rtl"] .nk-tag { letter-spacing:0; text-transform:none; }
+  .nk-date { font-family: var(--font-mono); font-size: 11px; letter-spacing:.12em; color: var(--ink-mute); margin-left: 14px; }
+  html[dir="rtl"] .nk-date { margin-left:0; margin-right:14px; }
+  .lead-story h2 { font-size: clamp(30px,4vw,52px); margin-top: 14px; line-height:1.04; }
+  .lead-story p { margin-top: 16px; color: var(--ink-soft); font-size: 17px; }
+
+  .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  @media (max-width: 920px){ .news-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px){ .news-grid { grid-template-columns: 1fr; } }
+  .ncard { display:flex; flex-direction: column; background: var(--bone); border:1px solid var(--line); border-radius:20px; overflow:hidden; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .ncard:hover { transform: translateY(-5px); box-shadow: 0 30px 64px -38px rgba(26,26,26,.45); }
+  .ncard .nimg { aspect-ratio: 16/10; overflow:hidden; }
+  .ncard .nimg img { width:100%; height:100%; object-fit:cover; transition: transform 1s var(--ease); }
+  .ncard:hover .nimg img { transform: scale(1.05); }
+  .ncard .nb { padding: 22px 24px 26px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .ncard h3 { font-size: 22px; line-height:1.16; }
+  .ncard p { color: var(--ink-soft); font-size: 14.5px; line-height:1.6; }
+  .ncard .more { margin-top:auto; font-family: var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color: var(--terracotta); }
+  html[dir="rtl"] .ncard .more { letter-spacing:0; text-transform:none; }
+
+  .signup { background: var(--night); color: var(--on-dark); }
+  .signup .box { display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items:end; }
+  @media (max-width: 760px){ .signup .box { grid-template-columns: 1fr; gap: 28px; } }
+  .signup h2 { font-size: clamp(34px,5vw,64px); } .signup h2 em { color: var(--gold-lit); }
+  .signup p { margin-top: 14px; color: var(--on-dark-dim); max-width: 40ch; }
+  .signup form { display:flex; gap:12px; border-bottom:1px solid var(--on-dark-line); padding-bottom: 12px; }
+  .signup input { flex:1; background:transparent; border:none; outline:none; color:var(--on-dark); font-family: var(--font-display); font-size:19px; }
+  .signup input::placeholder { color: var(--on-dark-mute); }
+  .signup button { font-family: var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color: var(--gold-lit); }
+  html[dir="rtl"] .signup button { letter-spacing:0; text-transform:none; }
+  .toast { position: fixed; left:50%; bottom:28px; transform: translate(-50%,30px); background: var(--ink); color: var(--bone); padding: 13px 24px; border-radius:980px; font-family: var(--font-mono); font-size:12px; letter-spacing:.14em; opacity:0; pointer-events:none; transition: opacity .3s var(--ease), transform .35s var(--ease); z-index: 2000; }
+  .toast.on { opacity:1; transform: translate(-50%,0); }
+  html[dir="rtl"] .toast { letter-spacing:0; }
+</style>
+</head>
+<body>
+
+<section class="page-hero">
+  <div class="glow"></div>
+  <div class="wrap inner">
+    <p class="eyebrow" style="color:var(--gold-lit)" data-lang-group><span data-lang-block="en">Dispatches</span><span data-lang-block="ar">من الميدان</span><span data-lang-block="fr">Dépêches</span><span data-lang-block="es">Despachos</span><span data-lang-block="de">Aus dem Feld</span></p>
+    <h1 style="margin-top:16px" data-lang-group>
+      <span data-lang-block="en">News from the <em>field.</em></span>
+      <span data-lang-block="ar">أخبارٌ من <em>الميدان.</em></span>
+      <span data-lang-block="fr">Actualités du <em>terrain.</em></span>
+      <span data-lang-block="es">Noticias del <em>terreno.</em></span>
+      <span data-lang-block="de">Nachrichten aus dem <em>Feld.</em></span>
+    </h1>
+    <p class="lede" data-lang-group>
+      <span data-lang-block="en">Cultural, archaeological and natural news from across Sudan — gathered by the people documenting the living archive.</span>
+      <span data-lang-block="ar">أخبارٌ ثقافيّةٌ وأثريّةٌ وطبيعيّةٌ من كلِّ أنحاءِ السودان — يجمعُها مَن يوثّقونَ الأرشيفَ الحيّ.</span>
+      <span data-lang-block="fr">Actualités culturelles, archéologiques et naturelles de tout le Soudan — réunies par ceux qui documentent l'archive vivante.</span>
+      <span data-lang-block="es">Noticias culturales, arqueológicas y naturales de todo Sudán — reunidas por quienes documentan el archivo vivo.</span>
+      <span data-lang-block="de">Kulturelle, archäologische und natürliche Nachrichten aus dem ganzen Sudan — gesammelt von jenen, die das lebendige Archiv dokumentieren.</span>
+    </p>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="wrap">
+    <article class="lead-story reveal">
+      <div class="media"><img src="images/nubian-village.png" alt="Jebel Marra" /></div>
+      <div>
+        <span class="nk-tag" data-lang-group><span data-lang-block="en">Nature</span><span data-lang-block="ar">طبيعة</span><span data-lang-block="fr">Nature</span><span data-lang-block="es">Naturaleza</span><span data-lang-block="de">Natur</span></span>
+        <span class="nk-date">06 · 2026</span>
+        <h2 data-lang-group>
+          <span data-lang-block="en">Spring rains return green terraces to the slopes of Jebel Marra.</span>
+          <span data-lang-block="ar">أمطارُ الربيعِ تعيدُ المدرّجاتِ الخضراءَ إلى منحدراتِ جبلِ مرّة.</span>
+          <span data-lang-block="fr">Les pluies de printemps reverdissent les terrasses du Jebel Marra.</span>
+          <span data-lang-block="es">Las lluvias de primavera reverdecen las terrazas de Jebel Marra.</span>
+          <span data-lang-block="de">Frühlingsregen lässt die Terrassen des Jebel Marra wieder ergrünen.</span>
+        </h2>
+        <p data-lang-group>
+          <span data-lang-block="en">In the western highlands of Darfur, this season's rains have filled the Deriba crater lakes and revived the citrus terraces — a reminder that Sudan's highest land is also its greenest.</span>
+          <span data-lang-block="ar">في مرتفعاتِ دارفورَ الغربيّة، ملأت أمطارُ هذا الموسمِ بحيرتي فوهةِ دريبة وأحيت مدرّجاتِ الحمضيّات — تذكيرٌ بأنَّ أعلى أراضي السودانِ هي أيضاً أكثرُها خُضرة.</span>
+          <span data-lang-block="fr">Dans les hautes terres occidentales du Darfour, les pluies de la saison ont rempli les lacs de cratère de Deriba et ravivé les terrasses d'agrumes.</span>
+          <span data-lang-block="es">En las tierras altas occidentales de Darfur, las lluvias han llenado los lagos del cráter de Deriba y revivido las terrazas de cítricos.</span>
+          <span data-lang-block="de">Im westlichen Hochland Darfurs füllten die Regenfälle die Deriba-Kraterseen und belebten die Zitrusterrassen.</span>
+        </p>
+        <a class="btn btn-ghost" style="margin-top:24px" href="chronicles.html#marra" data-lang-group><span data-lang-block="en">Read the chapter</span><span data-lang-block="ar">اقرأ الفصل</span><span data-lang-block="fr">Lire le chapitre</span><span data-lang-block="es">Leer el capítulo</span><span data-lang-block="de">Kapitel lesen</span> <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section-sm" style="padding-top:0">
+  <div class="wrap">
+    <div class="news-grid">
+
+      <article class="ncard reveal">
+        <div class="nimg"><img src="images/desert-camp.png" alt="" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Heritage</span><span data-lang-block="ar">تراث</span><span data-lang-block="fr">Patrimoine</span><span data-lang-block="es">Patrimonio</span><span data-lang-block="de">Erbe</span></span><span class="nk-date">05 · 2026</span></div>
+          <h3 data-lang-group><span data-lang-block="en">Kerma's bronze collection enters the digital record.</span><span data-lang-block="ar">مجموعةُ كرمةَ البرونزيّةُ تدخلُ الأرشيفَ الرقميّ.</span><span data-lang-block="fr">La collection de bronzes de Kerma numérisée.</span><span data-lang-block="es">La colección de bronces de Kerma se digitaliza.</span><span data-lang-block="de">Kermas Bronzesammlung wird digitalisiert.</span></h3>
+          <p data-lang-group><span data-lang-block="en">High-resolution documentation begins on objects recovered from the workshops of the ancient capital.</span><span data-lang-block="ar">يبدأُ توثيقٌ عالي الدقّةِ لقطعٍ استُخرجت من ورشِ العاصمةِ القديمة.</span><span data-lang-block="fr">La documentation haute résolution commence sur les objets des ateliers antiques.</span><span data-lang-block="es">Comienza la documentación en alta resolución de los objetos de los talleres antiguos.</span><span data-lang-block="de">Hochauflösende Dokumentation der Objekte aus den antiken Werkstätten beginnt.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+      <article class="ncard reveal" data-d="1">
+        <div class="nimg"><img src="images/red-sea-port-sudan.png" alt="" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Conservation</span><span data-lang-block="ar">صون</span><span data-lang-block="fr">Conservation</span><span data-lang-block="es">Conservación</span><span data-lang-block="de">Erhaltung</span></span><span class="nk-date">04 · 2026</span></div>
+          <h3 data-lang-group><span data-lang-block="en">Suakin's coral-stone gates documented for restoration.</span><span data-lang-block="ar">توثيقُ بواباتِ سواكنَ المرجانيّةِ تمهيداً للترميم.</span><span data-lang-block="fr">Les portes de corail de Suakin documentées pour restauration.</span><span data-lang-block="es">Las puertas de coral de Suakin documentadas para restauración.</span><span data-lang-block="de">Suakins Korallentore zur Restaurierung dokumentiert.</span></h3>
+          <p data-lang-group><span data-lang-block="en">A survey of the island's madrepore architecture lays the groundwork for careful, phased conservation.</span><span data-lang-block="ar">يمهّدُ مسحٌ لعمارةِ الجزيرةِ المرجانيّةِ لترميمٍ متأنٍّ على مراحل.</span><span data-lang-block="fr">Un relevé de l'architecture de l'île prépare une conservation prudente et progressive.</span><span data-lang-block="es">Un estudio de la arquitectura de la isla prepara una conservación cuidadosa por fases.</span><span data-lang-block="de">Eine Vermessung der Inselarchitektur ebnet den Weg für eine behutsame Erhaltung.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+      <article class="ncard reveal" data-d="2">
+        <div class="nimg"><img src="images/sudanese-market.png" alt="" onerror="this.src='images/coffee-ritual.png'" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Culture</span><span data-lang-block="ar">ثقافة</span><span data-lang-block="fr">Culture</span><span data-lang-block="es">Cultura</span><span data-lang-block="de">Kultur</span></span><span class="nk-date">03 · 2026</span></div>
+          <h3 data-lang-group><span data-lang-block="en">The jebena coffee ritual proposed for the heritage list.</span><span data-lang-block="ar">اقتراحُ طقسِ قهوةِ الجبنةِ لقائمةِ التراث.</span><span data-lang-block="fr">Le rituel du café jebena proposé au patrimoine.</span><span data-lang-block="es">El ritual del café jebena propuesto para el patrimonio.</span><span data-lang-block="de">Das Jebena-Kaffeeritual fürs Erbe vorgeschlagen.</span></h3>
+          <p data-lang-group><span data-lang-block="en">Communities move to recognise the slow, three-boil ceremony as intangible cultural heritage.</span><span data-lang-block="ar">تتحرّكُ المجتمعاتُ للاعترافِ بطقسِ الغليِ الثلاثِ البطيءِ تراثاً ثقافيّاً غيرَ ماديّ.</span><span data-lang-block="fr">Les communautés œuvrent à reconnaître la cérémonie comme patrimoine immatériel.</span><span data-lang-block="es">Las comunidades buscan reconocer la ceremonia como patrimonio inmaterial.</span><span data-lang-block="de">Gemeinschaften setzen sich für die Anerkennung als immaterielles Erbe ein.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+      <article class="ncard reveal">
+        <div class="nimg"><img src="images/jebel-barkal.png" alt="" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Archaeology</span><span data-lang-block="ar">آثار</span><span data-lang-block="fr">Archéologie</span><span data-lang-block="es">Arqueología</span><span data-lang-block="de">Archäologie</span></span><span class="nk-date">02 · 2026</span></div>
+          <h3 data-lang-group><span data-lang-block="en">New monitoring programme expands around Jebel Barkal.</span><span data-lang-block="ar">برنامجُ رصدٍ جديدٌ يتوسّعُ حولَ جبلِ البركل.</span><span data-lang-block="fr">Un nouveau programme de surveillance s'étend autour du Jebel Barkal.</span><span data-lang-block="es">Un nuevo programa de monitoreo se amplía en torno a Jebel Barkal.</span><span data-lang-block="de">Ein neues Überwachungsprogramm rund um Jebel Barkal wächst.</span></h3>
+          <p data-lang-group><span data-lang-block="en">The sacred mountain and its temples join an expanded site-monitoring effort across the north.</span><span data-lang-block="ar">ينضمُّ الجبلُ المقدّسُ ومعابدُه إلى جهدِ رصدٍ موسّعٍ في الشمال.</span><span data-lang-block="fr">La montagne sacrée rejoint un effort de surveillance élargi dans le nord.</span><span data-lang-block="es">La montaña sagrada se une a un esfuerzo de monitoreo ampliado en el norte.</span><span data-lang-block="de">Der heilige Berg schließt sich einem erweiterten Monitoring im Norden an.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+      <article class="ncard reveal" data-d="1">
+        <div class="nimg"><img src="images/nile-sunset.png" alt="" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Nature</span><span data-lang-block="ar">طبيعة</span><span data-lang-block="fr">Nature</span><span data-lang-block="es">Naturaleza</span><span data-lang-block="de">Natur</span></span><span class="nk-date">01 · 2026</span></div>
+          <h3 data-lang-group><span data-lang-block="en">Record citrus harvest in the Gash delta of Kassala.</span><span data-lang-block="ar">حصادٌ قياسيٌّ للحمضيّاتِ في دلتا القاشِ بكسلا.</span><span data-lang-block="fr">Récolte record d'agrumes dans le delta du Gash à Kassala.</span><span data-lang-block="es">Cosecha récord de cítricos en el delta del Gash en Kassala.</span><span data-lang-block="de">Rekordzitrusernte im Gash-Delta bei Kassala.</span></h3>
+          <p data-lang-group><span data-lang-block="en">The inland delta's seasonal flood brought an exceptional yield to the orchards below the Taka Mountains.</span><span data-lang-block="ar">جلب فيضانُ الدلتا الداخليّةِ الموسميُّ غلّةً استثنائيّةً لبساتينِ سفحِ جبالِ التاكا.</span><span data-lang-block="fr">La crue saisonnière du delta a apporté un rendement exceptionnel aux vergers.</span><span data-lang-block="es">La crecida estacional del delta trajo un rendimiento excepcional a los huertos.</span><span data-lang-block="de">Die saisonale Flut des Deltas brachte den Obstgärten einen außergewöhnlichen Ertrag.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+      <article class="ncard reveal" data-d="2">
+        <div class="nimg"><img src="images/meroe-hero.png" alt="" /></div>
+        <div class="nb">
+          <div><span class="nk-tag" data-lang-group><span data-lang-block="en">Archive</span><span data-lang-block="ar">الأرشيف</span><span data-lang-block="fr">Archive</span><span data-lang-block="es">Archivo</span><span data-lang-block="de">Archiv</span></span><span class="nk-date">12 · 2025</span></div>
+          <h3 data-lang-group><span data-lang-block="en">The Living Archive opens to the public.</span><span data-lang-block="ar">الأرشيفُ الحيُّ يفتحُ أبوابَه للجمهور.</span><span data-lang-block="fr">L'Archive Vivante ouvre au public.</span><span data-lang-block="es">El Archivo Vivo abre al público.</span><span data-lang-block="de">Das lebendige Archiv öffnet für die Öffentlichkeit.</span></h3>
+          <p data-lang-group><span data-lang-block="en">A bilingual record of Sudan's kingdoms, coasts and crafts — built to grow, chapter by chapter.</span><span data-lang-block="ar">سجلٌّ ثنائيُّ اللغةِ لممالكِ السودانِ وسواحلهِ وحِرَفهِ — بُنيَ لينموَ، فصلاً بعدَ فصل.</span><span data-lang-block="fr">Un registre bilingue des royaumes, côtes et savoir-faire du Soudan — conçu pour grandir.</span><span data-lang-block="es">Un registro bilingüe de los reinos, costas y oficios de Sudán — hecho para crecer.</span><span data-lang-block="de">Ein zweisprachiges Verzeichnis von Sudans Königreichen, Küsten und Handwerk — zum Wachsen gebaut.</span></p>
+          <span class="more" data-lang-group><span data-lang-block="en">Dispatch →</span><span data-lang-block="ar">التفاصيل →</span><span data-lang-block="fr">Dépêche →</span><span data-lang-block="es">Despacho →</span><span data-lang-block="de">Meldung →</span></span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section signup">
+  <div class="wrap box">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--gold-lit)" data-lang-group><span data-lang-block="en">Stay tuned</span><span data-lang-block="ar">ترقّبوا</span><span data-lang-block="fr">Restez à l'écoute</span><span data-lang-block="es">Mantente atento</span><span data-lang-block="de">Bleib dran</span></p>
+      <h2 style="margin-top:14px" data-lang-group>
+        <span data-lang-block="en">One letter a <em>month.</em></span>
+        <span data-lang-block="ar">رسالةٌ واحدةٌ كلَّ <em>شهر.</em></span>
+        <span data-lang-block="fr">Une lettre par <em>mois.</em></span>
+        <span data-lang-block="es">Una carta al <em>mes.</em></span>
+        <span data-lang-block="de">Ein Brief pro <em>Monat.</em></span>
+      </h2>
+      <p data-lang-group>
+        <span data-lang-block="en">A photograph, a place, a dispatch from the archive — written by the people documenting Sudan.</span>
+        <span data-lang-block="ar">صورةٌ، ومكانٌ، وخبرٌ من الأرشيف — يكتبُه مَن يوثّقونَ السودان.</span>
+        <span data-lang-block="fr">Une photo, un lieu, une dépêche de l'archive — écrite par ceux qui documentent le Soudan.</span>
+        <span data-lang-block="es">Una foto, un lugar, un despacho del archivo — escrito por quienes documentan Sudán.</span>
+        <span data-lang-block="de">Ein Foto, ein Ort, eine Meldung aus dem Archiv — geschrieben von jenen, die Sudan dokumentieren.</span>
+      </p>
+    </div>
+    <form class="reveal" data-d="1" data-news-form>
+      <input type="email" required data-i18n-ph="news.ph" placeholder="your@email.com" />
+      <button type="submit" data-lang-group><span data-lang-block="en">Subscribe</span><span data-lang-block="ar">اشترك</span><span data-lang-block="fr">S'abonner</span><span data-lang-block="es">Suscribirse</span><span data-lang-block="de">Abonnieren</span></button>
+    </form>
+  </div>
+</section>
+
+<div class="toast" data-toast></div>
+
+<script>
+  window.PAGE="news";
+  window.PAGE_I18N = {
+    "news.ph": { en:"your@email.com", ar:"بريدك@email.com", fr:"votre@email.com", es:"tu@email.com", de:"deine@email.com" },
+    "news.thanks": { en:"Thank you — see you in your inbox.", ar:"شكراً — إلى اللقاء في بريدك.", fr:"Merci — à bientôt dans votre boîte.", es:"Gracias — nos vemos en tu bandeja.", de:"Danke — bis bald im Postfach." }
+  };
+</script>
+<script src="assets/app.js"></script>
+<script>
+  (function(){
+    var form = document.querySelector('[data-news-form]');
+    var toast = document.querySelector('[data-toast]'); var tmr;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var inp = form.querySelector('input'); if(!inp.value.trim()) return;
+      var msg = (window.VS && window.VS.t) ? null : null;
+      var entry = window.PAGE_I18N['news.thanks']; var lang = window.VS ? window.VS.getLang() : 'en';
+      toast.textContent = entry[lang] || entry.en;
+      toast.classList.add('on'); inp.value='';
+      clearTimeout(tmr); tmr = setTimeout(function(){ toast.classList.remove('on'); }, 3200);
+    });
+  })();
+</script>
+</body>
+</html>

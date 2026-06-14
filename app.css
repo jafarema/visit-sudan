@@ -1,0 +1,57 @@
+# Visit Sudan — The Living Archive
+
+A non-commercial, bilingual (and 5-language interface) digital monument to Sudan: its kingdoms, coasts, mountains, crafts and people — presented as a sovereign African civilisation, on its own terms.
+
+This is a **plain static website**. No build step, no npm, no frameworks — just HTML, CSS and vanilla JavaScript.
+
+## Pages
+
+| File | Page |
+|---|---|
+| `index.html` | Home — hero, figures, gateways, hospitality, the green west |
+| `destinations.html` | Six destinations (Meroë, Khartoum, Jebel Barkal, Port Sudan, Nubian villages, Bayuda) |
+| `heritage.html` | Hands of Sudan — tabag, jebena, painted doors, acacia, secretary bird, henna |
+| `chronicles.html` | Six bilingual chapters (Kerma · Barkal · Jebel Marra / West · Kassala · Suakin · Hands) |
+| `gallery.html` | Photo mosaic |
+| `news.html` | Dispatches + newsletter |
+| `visit.html` | Practical guide — season calendar, regions map, know-before-you-go |
+| `about.html` | About the project |
+
+## Shared assets
+
+- `assets/app.css` — the whole design system (palette, type, components)
+- `assets/app.js` — injects the nav + footer into every page and drives the 5-language system (EN · AR · FR · ES · DE) with right-to-left support and `localStorage` persistence
+- `images/` — placeholder photography (replace with real licensed Sudanese photography before launch)
+- `fonts/` — KOOkies (display), KoGaliModern (text), Palestine (Arabic display)
+
+## Important
+
+**Keep the whole folder together.** Every page needs `assets/`, `images/` and `fonts/` beside it. If you open a single HTML file without its sibling folders, the styling and languages will not load.
+
+## Run locally
+
+Open `index.html` in a browser. For best results (so relative paths always resolve), serve the folder:
+
+```bash
+# Python 3
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
+
+## Deploy (free)
+
+**Netlify (easiest):** drag the whole folder onto https://app.netlify.com/drop — live instantly.
+
+**GitHub Pages:**
+1. Create a new repository.
+2. Upload everything inside this folder (the HTML files **and** `assets/`, `images/`, `fonts/`).
+3. Settings → Pages → Source: *Deploy from a branch* → Branch `main`, folder `/(root)` → Save.
+4. Live at `https://<username>.github.io/<repo>/` in ~1 minute.
+
+**Cloudflare Pages / GitLab Pages** work the same way — point them at the folder root; `index.html` is the homepage automatically.
+
+## Notes
+
+- All photography is placeholder and must be replaced with real licensed imagery of Sudan before any public launch.
+- Sudan's history is presented on its own terms — no comparison framing.
+- Content is © its authors; fonts retain their own licences.
