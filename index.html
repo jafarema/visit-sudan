@@ -3,46 +3,25 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gallery — Visit Sudan</title>
-<meta name="description" content="A gallery of Sudan — pyramids, the Nile, the Red Sea coast, painted villages, desert nights and the coffee ritual." />
+<title>Visit Sudan</title>
+<meta name="description" content="Discover Sudan — golden pyramids, the Nile, coral coasts, painted villages, and desert nights." />
 <meta name="theme-color" content="#0B0A09" />
 <style>[data-lang-block]{display:none}[data-lang-block="en"]{display:inline}div[data-lang-block="en"]{display:block}</style>
 <link rel="stylesheet" href="assets/app.css" />
 <style>
-  .page-hero { position: relative; padding: calc(var(--nav-h) + 92px) 0 72px; background: var(--night); color: var(--on-dark); overflow:hidden; }
+  .page-hero { position: relative; padding: calc(var(--nav-h) + 120px) 0 100px; background: var(--night); color: var(--on-dark); overflow:hidden; }
   .page-hero .glow { position:absolute; inset:0; background: radial-gradient(70% 60% at 78% 6%, rgba(212,175,55,.15), transparent 56%); }
   .page-hero .inner { position:relative; z-index:2; }
-  .page-hero h1 { font-size: clamp(44px,7vw,104px); line-height:.98; letter-spacing:-0.04em; }
-  .page-hero h1 em { color: var(--gold-lit); }
-  .page-hero .lede { margin-top:22px; max-width:48ch; color:var(--on-dark-dim); }
-
-  .mosaic { display:grid; grid-template-columns: repeat(12,1fr); gap:16px; grid-auto-flow: dense; }
-  @media (max-width:760px){ .mosaic { grid-template-columns: repeat(2,1fr); } }
-  .gitem { position:relative; overflow:hidden; border-radius:18px; background:var(--cream-2); }
-  .gitem img { width:100%; height:100%; object-fit:cover; transition: transform 1.1s var(--ease); }
-  .gitem:hover img { transform: scale(1.06); }
-  .gitem .cap {
-    position:absolute; inset:auto 0 0 0; z-index:2; padding:22px;
-    background: linear-gradient(180deg, transparent, rgba(11,10,9,.82));
-    color:var(--on-dark);
-    opacity:0; transform: translateY(8px);
-    transition: opacity .4s var(--ease), transform .4s var(--ease);
-  }
-  .gitem:hover .cap { opacity:1; transform:none; }
-  .gitem .cap .e { font-family:var(--font-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-lit); }
-  html[dir="rtl"] .gitem .cap .e { letter-spacing:0; text-transform:none; }
-  .gitem .cap h3 { font-size:21px; margin-top:6px; }
-  /* spans */
-  .c12{ grid-column: span 12; } .c8{ grid-column: span 8; } .c6{ grid-column: span 6; } .c4{ grid-column: span 4; }
-  @media (max-width:760px){ .c12,.c8,.c6,.c4{ grid-column: span 2; } }
-  .r2{ grid-row: span 2; }
-  .gitem.c8, .gitem.c6 { aspect-ratio: 16/10; }
-  .gitem.c4 { aspect-ratio: 3/4; }
-  .gitem.c12 { aspect-ratio: 21/9; }
-  @media (max-width:760px){ .gitem.c8,.gitem.c6,.gitem.c4,.gitem.c12 { aspect-ratio: 4/3; } }
-
-  .note { text-align:center; color:var(--ink-mute); font-family:var(--font-mono); font-size:12px; letter-spacing:.14em; margin-top:56px; }
-  html[dir="rtl"] .note { letter-spacing:0; }
+  .page-hero h1 { font-size: clamp(48px,9vw,120px); line-height:.95; letter-spacing:-0.04em; margin-bottom:24px; }
+  .page-hero h1 em { color: var(--gold-lit); font-style:italic; }
+  .page-hero .subtitle { font-size: clamp(18px,4vw,28px); color:var(--on-dark-dim); margin-bottom:32px; max-width:60ch; }
+  .cta-button { display:inline-block; padding:16px 32px; background:var(--gold-lit); color:var(--night); text-decoration:none; border-radius:8px; font-weight:600; transition:all .3s var(--ease); margin-top:24px; }
+  .cta-button:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(212,175,55,.3); }
+  
+  .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:40px; margin:80px 0; }
+  .feature { text-align:center; }
+  .feature h3 { font-size:24px; margin:16px 0; }
+  .feature p { color:var(--ink-mute); line-height:1.7; }
 </style>
 </head>
 <body>
@@ -50,47 +29,86 @@
 <section class="page-hero">
   <div class="glow"></div>
   <div class="wrap inner">
-    <p class="eyebrow" style="color:var(--gold-lit)" data-lang-group><span data-lang-block="en">Gallery</span><span data-lang-block="ar">معرض الصور</span><span data-lang-block="fr">Galerie</span><span data-lang-block="es">Galería</span><span data-lang-block="de">Galerie</span></p>
-    <h1 style="margin-top:16px" data-lang-group>
-      <span data-lang-block="en">Sudan, in <em>frames.</em></span>
-      <span data-lang-block="ar">السودان، في <em>صور.</em></span>
-      <span data-lang-block="fr">Le Soudan, en <em>images.</em></span>
-      <span data-lang-block="es">Sudán, en <em>imágenes.</em></span>
-      <span data-lang-block="de">Sudan, in <em>Bildern.</em></span>
+    <h1 data-lang-group>
+      <span data-lang-block="en">Welcome to <em>Sudan.</em></span>
+      <span data-lang-block="ar">أهلا وسهلا في <em>السودان.</em></span>
+      <span data-lang-block="fr">Bienvenue au <em>Soudan.</em></span>
+      <span data-lang-block="es">Bienvenido a <em>Sudán.</em></span>
+      <span data-lang-block="de">Willkommen im <em>Sudan.</em></span>
     </h1>
-    <p class="lede" data-lang-group>
-      <span data-lang-block="en">Golden-hour pyramids, the braided Nile, a coral coast, painted doors and desert nights — a country that photographs like a film.</span>
-      <span data-lang-block="ar">أهرامُ الساعةِ الذهبيّة، والنيلُ المضفور، وساحلٌ مرجانيّ، وأبوابٌ مرسومة، وليالي الصحراء — بلدٌ يُصوَّرُ كأنّه فيلم.</span>
-      <span data-lang-block="fr">Pyramides à l'heure dorée, le Nil tressé, une côte de corail, portes peintes et nuits du désert — un pays qui se photographie comme un film.</span>
-      <span data-lang-block="es">Pirámides a la hora dorada, el Nilo trenzado, una costa de coral, puertas pintadas y noches del desierto — un país que se fotografía como una película.</span>
-      <span data-lang-block="de">Pyramiden im goldenen Licht, der verflochtene Nil, eine Korallenküste, bemalte Türen und Wüstennächte — ein Land, das sich wie ein Film fotografiert.</span>
+    <p class="subtitle" data-lang-group>
+      <span data-lang-block="en">Discover ancient pyramids, the mighty Nile, pristine coral coasts, and vibrant desert culture.</span>
+      <span data-lang-block="ar">اكتشف الأهرامات القديمة والنيل الجميل والشواطئ المرجانية والثقافة الصحراوية النابضة بالحياة.</span>
+      <span data-lang-block="fr">Découvrez les pyramides anciennes, le Nil majestueux, les côtes de corail vierges et la culture désertique vibrante.</span>
+      <span data-lang-block="es">Descubre pirámides antiguas, el poderoso Nilo, costas de coral prístinas y la vibrante cultura desértica.</span>
+      <span data-lang-block="de">Entdecken Sie alte Pyramiden, den mächtigen Nil, unberührte Korallenküsten und lebendige Wüstenkultur.</span>
     </p>
+    <a href="gallery.html" class="cta-button" data-lang-group>
+      <span data-lang-block="en">Explore Gallery</span>
+      <span data-lang-block="ar">استكشف المعرض</span>
+      <span data-lang-block="fr">Explorer la Galerie</span>
+      <span data-lang-block="es">Explorar Galería</span>
+      <span data-lang-block="de">Galerie Erkunden</span>
+    </a>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="mosaic">
-      <figure class="gitem c8 reveal"><img src="images/meroe-hero.png" alt="Meroë pyramids" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Meroë · golden hour</span><span data-lang-block="ar">مروي · الساعة الذهبيّة</span><span data-lang-block="fr">Méroé · heure dorée</span><span data-lang-block="es">Meroe · hora dorada</span><span data-lang-block="de">Meroë · goldene Stunde</span></span><h3 data-lang-group><span data-lang-block="en">The royal pyramids</span><span data-lang-block="ar">الأهرامُ الملكيّة</span><span data-lang-block="fr">Les pyramides royales</span><span data-lang-block="es">Las pirámides reales</span><span data-lang-block="de">Die königlichen Pyramiden</span></h3></figcaption></figure>
-      <figure class="gitem c4 reveal" data-d="1"><img src="images/nile-sunset.png" alt="The Nile at sunset" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Khartoum</span><span data-lang-block="ar">الخرطوم</span><span data-lang-block="fr">Khartoum</span><span data-lang-block="es">Jartum</span><span data-lang-block="de">Khartum</span></span><h3 data-lang-group><span data-lang-block="en">The braided Nile</span><span data-lang-block="ar">النيلُ المضفور</span><span data-lang-block="fr">Le Nil tressé</span><span data-lang-block="es">El Nilo trenzado</span><span data-lang-block="de">Der verflochtene Nil</span></h3></figcaption></figure>
-      <figure class="gitem c4 reveal"><img src="images/jebel-barkal.png" alt="Jebel Barkal" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Karima</span><span data-lang-block="ar">كريمة</span><span data-lang-block="fr">Karima</span><span data-lang-block="es">Karima</span><span data-lang-block="de">Karima</span></span><h3 data-lang-group><span data-lang-block="en">Jebel Barkal</span><span data-lang-block="ar">جبل البركل</span><span data-lang-block="fr">Djebel Barkal</span><span data-lang-block="es">Jebel Barkal</span><span data-lang-block="de">Jebel Barkal</span></h3></figcaption></figure>
-      <figure class="gitem c4 reveal" data-d="1"><img src="images/red-sea-port-sudan.png" alt="Red Sea coast" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Port Sudan</span><span data-lang-block="ar">بورتسودان</span><span data-lang-block="fr">Port-Soudan</span><span data-lang-block="es">Puerto Sudán</span><span data-lang-block="de">Port Sudan</span></span><h3 data-lang-group><span data-lang-block="en">The coral coast</span><span data-lang-block="ar">الساحلُ المرجانيّ</span><span data-lang-block="fr">La côte de corail</span><span data-lang-block="es">La costa de coral</span><span data-lang-block="de">Die Korallenküste</span></h3></figcaption></figure>
-      <figure class="gitem c4 reveal" data-d="2"><img src="images/coffee-ritual.png" alt="Jebena coffee" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">The ritual</span><span data-lang-block="ar">الطقس</span><span data-lang-block="fr">Le rituel</span><span data-lang-block="es">El ritual</span><span data-lang-block="de">Das Ritual</span></span><h3 data-lang-group><span data-lang-block="en">Jebena coffee</span><span data-lang-block="ar">قهوةُ الجبنة</span><span data-lang-block="fr">Café jebena</span><span data-lang-block="es">Café jebena</span><span data-lang-block="de">Jebena-Kaffee</span></h3></figcaption></figure>
-      <figure class="gitem c6 reveal"><img src="images/nubian-village.png" alt="Nubian village" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Lower Nubia</span><span data-lang-block="ar">النوبة السفلى</span><span data-lang-block="fr">Basse-Nubie</span><span data-lang-block="es">Baja Nubia</span><span data-lang-block="de">Unternubien</span></span><h3 data-lang-group><span data-lang-block="en">Painted doors</span><span data-lang-block="ar">الأبوابُ المرسومة</span><span data-lang-block="fr">Portes peintes</span><span data-lang-block="es">Puertas pintadas</span><span data-lang-block="de">Bemalte Türen</span></h3></figcaption></figure>
-      <figure class="gitem c6 reveal" data-d="1"><img src="images/desert-camp.png" alt="Desert camp" loading="lazy" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Bayuda</span><span data-lang-block="ar">بيوضة</span><span data-lang-block="fr">Bayouda</span><span data-lang-block="es">Bayuda</span><span data-lang-block="de">Bayuda</span></span><h3 data-lang-group><span data-lang-block="en">Desert nights</span><span data-lang-block="ar">ليالي الصحراء</span><span data-lang-block="fr">Nuits du désert</span><span data-lang-block="es">Noches del desierto</span><span data-lang-block="de">Wüstennächte</span></h3></figcaption></figure>
-      <figure class="gitem c12 reveal"><img src="images/sudanese-market.png" alt="Omdurman market" loading="lazy" onerror="this.src='images/khartoum-nile.png'" /><figcaption class="cap"><span class="e" data-lang-group><span data-lang-block="en">Omdurman</span><span data-lang-block="ar">أم درمان</span><span data-lang-block="fr">Omdurman</span><span data-lang-block="es">Omdurmán</span><span data-lang-block="de">Omdurman</span></span><h3 data-lang-group><span data-lang-block="en">The largest souk in Sudan</span><span data-lang-block="ar">أكبرُ سوقٍ في السودان</span><span data-lang-block="fr">Le plus grand souk du Soudan</span><span data-lang-block="es">El mayor zoco de Sudán</span><span data-lang-block="de">Der größte Souk im Sudan</span></h3></figcaption></figure>
+    <div class="features">
+      <div class="feature">
+        <h3 data-lang-group>
+          <span data-lang-block="en">🏛️ Ancient Heritage</span>
+          <span data-lang-block="ar">🏛️ التراث القديم</span>
+          <span data-lang-block="fr">🏛️ Patrimoine Ancien</span>
+          <span data-lang-block="es">🏛️ Patrimonio Antiguo</span>
+          <span data-lang-block="de">🏛️ Antikes Erbe</span>
+        </h3>
+        <p data-lang-group>
+          <span data-lang-block="en">Home to Nubian pyramids and Meroe, Sudan preserves millennia of history and culture.</span>
+          <span data-lang-block="ar">موطن الأهرام النوبية والمروة، يحافظ السودان على آلاف السنين من التاريخ والثقافة.</span>
+          <span data-lang-block="fr">Patrie des pyramides nubiennes et de Méroé, le Soudan préserve des millénaires d'histoire et de culture.</span>
+          <span data-lang-block="es">Hogar de las pirámides nubias y Meroe, Sudán preserva milenios de historia y cultura.</span>
+          <span data-lang-block="de">Heimat der Nubischen Pyramiden und Meroe bewahrt der Sudan Jahrtausende Geschichte und Kultur.</span>
+        </p>
+      </div>
+      <div class="feature">
+        <h3 data-lang-group>
+          <span data-lang-block="en">🌊 Natural Beauty</span>
+          <span data-lang-block="ar">🌊 الجمال الطبيعي</span>
+          <span data-lang-block="fr">🌊 Beauté Naturelle</span>
+          <span data-lang-block="es">🌊 Belleza Natural</span>
+          <span data-lang-block="de">🌊 Natürliche Schönheit</span>
+        </h3>
+        <p data-lang-group>
+          <span data-lang-block="en">From the braided Nile to coral-lined Red Sea coasts and golden desert landscapes.</span>
+          <span data-lang-block="ar">من النيل المضفور إلى شواطئ البحر الأحمر المرجانية والمناظر الطبيعية الصحراوية الذهبية.</span>
+          <span data-lang-block="fr">Du Nil tressé aux côtes de la Mer Rouge bordées de corail et aux paysages désertiques dorés.</span>
+          <span data-lang-block="es">Desde el Nilo trenzado hasta las costas del Mar Rojo bordeadas de coral y paisajes desérticos dorados.</span>
+          <span data-lang-block="de">Vom geflochtenen Nil über korallengesäumte Küsten des Roten Meeres bis zu goldenen Wüstenlandschaften.</span>
+        </p>
+      </div>
+      <div class="feature">
+        <h3 data-lang-group>
+          <span data-lang-block="en">🎨 Vibrant Culture</span>
+          <span data-lang-block="ar">🎨 ثقافة نابضة بالحياة</span>
+          <span data-lang-block="fr">🎨 Culture Vibrante</span>
+          <span data-lang-block="es">🎨 Cultura Vibrante</span>
+          <span data-lang-block="de">🎨 Lebendige Kultur</span>
+        </h3>
+        <p data-lang-group>
+          <span data-lang-block="en">Experience painted villages, coffee rituals, markets, and the warmth of Sudanese hospitality.</span>
+          <span data-lang-block="ar">اختبر القرى المرسومة وطقوس القهوة والأسواق والدفء الضيافة السودانية.</span>
+          <span data-lang-block="fr">Découvrez les villages peints, les rituels du café, les marchés et la chaleur de l'hospitalité soudanaise.</span>
+          <span data-lang-block="es">Experimente pueblos pintados, rituales de café, mercados y la calidez de la hospitalidad sudanesa.</span>
+          <span data-lang-block="de">Erleben Sie bemalte Dörfer, Kaffeee-Rituale, Märkte und die Wärme der sudanesischen Gastfreundschaft.</span>
+        </p>
+      </div>
     </div>
-    <p class="note" data-lang-group>
-      <span data-lang-block="en">Placeholder imagery — real licensed Sudanese photography to come.</span>
-      <span data-lang-block="ar">صورٌ مؤقّتة — تصويرٌ سودانيٌّ حقيقيٌّ مُرخَّصٌ قادم.</span>
-      <span data-lang-block="fr">Images provisoires — vraie photographie soudanaise sous licence à venir.</span>
-      <span data-lang-block="es">Imágenes provisionales — fotografía sudanesa real con licencia por venir.</span>
-      <span data-lang-block="de">Platzhalterbilder — echte lizenzierte sudanesische Fotografie folgt.</span>
-    </p>
   </div>
 </section>
 
-<script>window.PAGE="gallery";</script>
+<script>window.PAGE="home";</script>
 <script src="assets/app.js"></script>
 </body>
 </html>
