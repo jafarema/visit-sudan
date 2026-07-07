@@ -8,107 +8,105 @@
 <meta name="theme-color" content="#0B0A09" />
 <style>[data-lang-block]{display:none}[data-lang-block="en"]{display:inline}div[data-lang-block="en"]{display:block}</style>
 <link rel="stylesheet" href="assets/app.css" />
-<style>
-  .page-hero { position: relative; padding: calc(var(--nav-h) + 120px) 0 100px; background: var(--night); color: var(--on-dark); overflow:hidden; }
-  .page-hero .glow { position:absolute; inset:0; background: radial-gradient(70% 60% at 78% 6%, rgba(212,175,55,.15), transparent 56%); }
-  .page-hero .inner { position:relative; z-index:2; }
-  .page-hero h1 { font-size: clamp(48px,9vw,120px); line-height:.95; letter-spacing:-0.04em; margin-bottom:24px; }
-  .page-hero h1 em { color: var(--gold-lit); font-style:italic; }
-  .page-hero .subtitle { font-size: clamp(18px,4vw,28px); color:var(--on-dark-dim); margin-bottom:32px; max-width:60ch; }
-  .cta-button { display:inline-block; padding:16px 32px; background:var(--gold-lit); color:var(--night); text-decoration:none; border-radius:8px; font-weight:600; transition:all .3s var(--ease); margin-top:24px; }
-  .cta-button:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(212,175,55,.3); }
-  
-  .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:40px; margin:80px 0; }
-  .feature { text-align:center; }
-  .feature h3 { font-size:24px; margin:16px 0; }
-  .feature p { color:var(--ink-mute); line-height:1.7; }
-</style>
 </head>
 <body>
+<a href="#main" class="skip-link sr-only">Skip to content</a>
 
-<section class="page-hero">
-  <div class="glow"></div>
+<header role="banner" class="page-hero bg-night">
   <div class="wrap inner">
-    <h1 data-lang-group>
+    <h1 class="huge" data-lang-group>
       <span data-lang-block="en">Welcome to <em>Sudan.</em></span>
       <span data-lang-block="ar">أهلا وسهلا في <em>السودان.</em></span>
       <span data-lang-block="fr">Bienvenue au <em>Soudan.</em></span>
       <span data-lang-block="es">Bienvenido a <em>Sudán.</em></span>
       <span data-lang-block="de">Willkommen im <em>Sudan.</em></span>
     </h1>
-    <p class="subtitle" data-lang-group>
+    <p class="lead-large lede" data-lang-group>
       <span data-lang-block="en">Discover ancient pyramids, the mighty Nile, pristine coral coasts, and vibrant desert culture.</span>
       <span data-lang-block="ar">اكتشف الأهرامات القديمة والنيل الجميل والشواطئ المرجانية والثقافة الصحراوية النابضة بالحياة.</span>
       <span data-lang-block="fr">Découvrez les pyramides anciennes, le Nil majestueux, les côtes de corail vierges et la culture désertique vibrante.</span>
       <span data-lang-block="es">Descubre pirámides antiguas, el poderoso Nilo, costas de coral prístinas y la vibrante cultura desértica.</span>
       <span data-lang-block="de">Entdecken Sie alte Pyramiden, den mächtigen Nil, unberührte Korallenküsten und lebendige Wüstenkultur.</span>
     </p>
-    <a href="gallery.html" class="cta-button" data-lang-group>
-      <span data-lang-block="en">Explore Gallery</span>
-      <span data-lang-block="ar">استكشف المعرض</span>
-      <span data-lang-block="fr">Explorer la Galerie</span>
-      <span data-lang-block="es">Explorar Galería</span>
-      <span data-lang-block="de">Galerie Erkunden</span>
-    </a>
+    <div style="margin-top:28px">
+      <a href="gallery.html" class="btn btn-accent" data-lang-group>
+        <span data-lang-block="en">Explore Gallery</span>
+        <span data-lang-block="ar">استكشف المعرض</span>
+        <span data-lang-block="fr">Explorer la Galerie</span>
+        <span data-lang-block="es">Explorar Galería</span>
+        <span data-lang-block="de">Galerie ansehen</span>
+      </a>
+      <a href="chronicles.html" class="btn btn-outline-light" style="margin-left:12px" data-lang-group>
+        <span data-lang-block="en">Enter the Chronicles</span>
+        <span data-lang-block="ar">ادخل الفصول</span>
+        <span data-lang-block="fr">Entrer dans les Chroniques</span>
+        <span data-lang-block="es">Entrar en las Crónicas</span>
+        <span data-lang-block="de">Die Chroniken</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" role="main">
+
+<section class="section statement">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-lang-group>
+      <span data-lang-block="en">An invitation</span><span data-lang-block="ar">دعوة</span><span data-lang-block="fr">Une invitation</span><span data-lang-block="es">Una invitación</span><span data-lang-block="de">Eine Einladung</span>
+    </p>
+    <h2 class="lead-large reveal" data-d="1" style="margin-top:18px" data-lang-group>
+      <span data-lang-block="en">For four thousand years this land built kingdoms, and kept them <em>quiet.</em></span>
+      <span data-lang-block="ar">طوالَ أربعةِ آلافِ عام، بنى هذا البلدُ ممالكَ، وأبقاها <em>هادئة.</em></span>
+    </h2>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="features">
-      <div class="feature">
-        <h3 data-lang-group>
-          <span data-lang-block="en">🏛️ Ancient Heritage</span>
-          <span data-lang-block="ar">🏛️ التراث القديم</span>
-          <span data-lang-block="fr">🏛️ Patrimoine Ancien</span>
-          <span data-lang-block="es">🏛️ Patrimonio Antiguo</span>
-          <span data-lang-block="de">🏛️ Antikes Erbe</span>
-        </h3>
-        <p data-lang-group>
-          <span data-lang-block="en">Home to Nubian pyramids and Meroe, Sudan preserves millennia of history and culture.</span>
-          <span data-lang-block="ar">موطن الأهرام النوبية والمروة، يحافظ السودان على آلاف السنين من التاريخ والثقافة.</span>
-          <span data-lang-block="fr">Patrie des pyramides nubiennes et de Méroé, le Soudan préserve des millénaires d'histoire et de culture.</span>
-          <span data-lang-block="es">Hogar de las pirámides nubias y Meroe, Sudán preserva milenios de historia y cultura.</span>
-          <span data-lang-block="de">Heimat der Nubischen Pyramiden und Meroe bewahrt der Sudan Jahrtausende Geschichte und Kultur.</span>
-        </p>
-      </div>
-      <div class="feature">
-        <h3 data-lang-group>
-          <span data-lang-block="en">🌊 Natural Beauty</span>
-          <span data-lang-block="ar">🌊 الجمال الطبيعي</span>
-          <span data-lang-block="fr">🌊 Beauté Naturelle</span>
-          <span data-lang-block="es">🌊 Belleza Natural</span>
-          <span data-lang-block="de">🌊 Natürliche Schönheit</span>
-        </h3>
-        <p data-lang-group>
-          <span data-lang-block="en">From the braided Nile to coral-lined Red Sea coasts and golden desert landscapes.</span>
-          <span data-lang-block="ar">من النيل المضفور إلى شواطئ البحر الأحمر المرجانية والمناظر الطبيعية الصحراوية الذهبية.</span>
-          <span data-lang-block="fr">Du Nil tressé aux côtes de la Mer Rouge bordées de corail et aux paysages désertiques dorés.</span>
-          <span data-lang-block="es">Desde el Nilo trenzado hasta las costas del Mar Rojo bordeadas de coral y paisajes desérticos dorados.</span>
-          <span data-lang-block="de">Vom geflochtenen Nil über korallengesäumte Küsten des Roten Meeres bis zu goldenen Wüstenlandschaften.</span>
-        </p>
-      </div>
-      <div class="feature">
-        <h3 data-lang-group>
-          <span data-lang-block="en">🎨 Vibrant Culture</span>
-          <span data-lang-block="ar">🎨 ثقافة نابضة بالحياة</span>
-          <span data-lang-block="fr">🎨 Culture Vibrante</span>
-          <span data-lang-block="es">🎨 Cultura Vibrante</span>
-          <span data-lang-block="de">🎨 Lebendige Kultur</span>
-        </h3>
-        <p data-lang-group>
-          <span data-lang-block="en">Experience painted villages, coffee rituals, markets, and the warmth of Sudanese hospitality.</span>
-          <span data-lang-block="ar">اختبر القرى المرسومة وطقوس القهوة والأسواق والدفء الضيافة السودانية.</span>
-          <span data-lang-block="fr">Découvrez les villages peints, les rituels du café, les marchés et la chaleur de l'hospitalité soudanaise.</span>
-          <span data-lang-block="es">Experimente pueblos pintados, rituales de café, mercados y la calidez de la hospitalidad sudanesa.</span>
-          <span data-lang-block="de">Erleben Sie bemalte Dörfer, Kaffeee-Rituale, Märkte und die Wärme der sudanesischen Gastfreundschaft.</span>
-        </p>
-      </div>
+  <div class="wrap features">
+    <div class="feature pillar center reveal">
+      <img src="images/meroe-hero.png" alt="Meroë royal pyramids at golden hour" loading="lazy" class="aspect-4-3" />
+      <h3 data-lang-group><span data-lang-block="en">Royal pyramids</span><span data-lang-block="ar">الأهرام الملكية</span></h3>
+      <p class="ink-mute" data-lang-group><span data-lang-block="en">Steep sided, close packed — an otherworldly landscape.</span><span data-lang-block="ar">حادة الجوانب، متقاربة — منظر من عالم آخر.</span></p>
+    </div>
+    <div class="feature pillar center reveal">
+      <img src="images/nile-sunset.png" alt="The Nile river at sunset" loading="lazy" class="aspect-4-3" />
+      <h3 data-lang-group><span data-lang-block="en">The braided Nile</span><span data-lang-block="ar">النيل المضفر</span></h3>
+      <p class="ink-mute" data-lang-group><span data-lang-block="en">Two rivers braided into one heart.</span><span data-lang-block="ar">نهران يلتفان ليصنعا قلباً واحداً.</span></p>
+    </div>
+    <div class="feature pillar center reveal">
+      <img src="images/desert-camp.png" alt="A Bedouin-style desert camp under stars" loading="lazy" class="aspect-4-3" />
+      <h3 data-lang-group><span data-lang-block="en">Desert nights</span><span data-lang-block="ar">ليالي الصحراء</span></h3>
+      <p class="ink-mute" data-lang-group><span data-lang-block="en">Sleep under the Milky Way with no light to dim it.</span><span data-lang-block="ar">نم تحت درب التبانة بلا ضوء يخفّفها.</span></p>
     </div>
   </div>
 </section>
 
-<script>window.PAGE="home";</script>
-<script src="assets/app.js"></script>
+</main>
+
+<footer role="contentinfo" class="section center">
+  <div class="wrap">
+    <p class="small ink-mute">© Visit Sudan — The Living Archive</p>
+  </div>
+</footer>
+
+<script>
+// Small language toggler: looks for [data-lang-block] inside data-lang-group containers
+(function(){
+  function setLang(lang){
+    document.querySelectorAll('[data-lang-group]').forEach(function(group){
+      group.querySelectorAll('[data-lang-block]').forEach(function(el){
+        el.style.display = (el.getAttribute('data-lang-block') === lang) ? '' : 'none';
+      });
+    });
+    document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    localStorage.setItem('site-lang', lang);
+  }
+  var pref = localStorage.getItem('site-lang') || 'en';
+  setLang(pref);
+  window.setSiteLang = setLang; // global for quick toggling in dev tools
+})();
+</script>
+
 </body>
 </html>
